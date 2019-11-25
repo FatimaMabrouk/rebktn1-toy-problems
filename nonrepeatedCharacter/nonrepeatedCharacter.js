@@ -7,5 +7,32 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+ var nonrepeated = string.split('');
+  
+ _.extends(nonrepeated, MakeMethode);
+  var store = [];
+ return nonrepeated;
 };
+var MakeMethode = [];
+  MakeMethode.repeted  = function(){
+  	var first = this.store[0];
+   for(var i =0; i < this.store.length; i++){
+      if()
+   }
+  
+};
+
+
+// function repeted(string){
+//     var result = '';
+//   	var store = string.split('');
+//    for(var i = 0; i < store.length; i++){
+//        for(var j = 1 ; i < store.length;j++ ){
+//            if(store[i] === store[j]){
+//              result = store[i];
+//            }
+//        }
+
+//    } 
+//   return result ;
+// }
