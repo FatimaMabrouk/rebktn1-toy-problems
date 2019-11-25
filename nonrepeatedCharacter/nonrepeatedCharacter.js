@@ -7,5 +7,8 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+var result= [];
+	result.push(string.split('').forEach().filter(x => x !== x).join());
+	return result[0];
 };
+
