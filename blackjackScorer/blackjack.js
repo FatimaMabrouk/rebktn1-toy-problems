@@ -13,29 +13,29 @@ Return the highest score of the cards that is less
 Examples
 
 ["A"]        11                   ==>  11
-["A", "J"]      11+10                ==>  21
-["A", "10", "A"] 11+10+11 ==>  12 .. if I understood the game correctly this should return 32
+["A", "J"]      11+10             ==>  21
+["A", "10", "A"] 1+10+1           ==>  12 I got it now
 ["5", "3", "7"]      15           ==>  15
-["5", "4", "3", "2", "A", "K"]  ==>  25 */
+["5", "4", "3", "2", "A", "K"]    ==>  25 */
 
 function blackjack(array){
-    var a = [];
-    var score = 0;
+    var smallestScor = 0;
+    var highestScore = 0;
     array.forEach(function(element){
         if(element === 'A'){
-            a.push('A');
+            smallestScor += 1;
+            highestScore += 11;
         } else if(element === 'J' || element === 'K' || element === 'Q'){
-            score += 10;
+            smallestScor += 10;
+            highestScore += 10;
         } else {
-            score += Number.parseInt(element)
+            smallestScor += Number.parseInt(element);
+            highestScore += Number.parseInt(element);
         }
     });
-    a.forEach(function(element){
-        if(score <= 21){
-            score += 11;
-        } else {
-            score += 1;
-        }
-    });
-    return score;
+    if(highestScore > 21){
+        return smallestScor;
+    } else {
+        return highestScore;
+    }
 }
