@@ -13,29 +13,35 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
-
 function blackJack(arrayofStrings) {
 	debugger;
-	//iterate
-return arrayofStrings.reduce ( function(accumulator, currentValue) {
+	var result = 0;
+	//iterate over input
+ 	arrayofStrings.forEach( function(currentValue,index) {
+	//check if the element is a number add it's value
 	if ( typeof(parseInt(currentValue)) === 'number') {
-		return	accumulator + parseInt(currentValue);
+			result + parseInt(currentValue);
+	//else it's a character add 10
 	} else if (currentValue === 'K' || currentValue === 'J' || currentValue === 'Q') {
-	return	accumulator + 10;
+		result + 10;
 	}
+	//Ace or A char has specaial pointing score
 	else if (currentValue === 'A') {
-		var Idx = indexOf('A')
-		if (Idx < 0) {
-			return accumulator++;
+		// there is no number before A ?  score 1
+		if (index === 0) {
+			 result++;
+		// there is a number before A ? score 11;
 		} else {
-			for (var i = indexOf('A'); i >= 0; i--) {
+			for (var i = index; i >= 0; i--) {
 				if (typeof(parseInt(arrayofStrings[i])) === 'number') {
-					return	accumulator + 11;
+						result + 11;
+						break;
 				}
 			}
 		}
 	}
-}, 0);
+});
+return result;
 }
 blackJack(["A"]);
 blackJack(["A", "J"])
