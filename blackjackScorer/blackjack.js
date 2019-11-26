@@ -32,9 +32,9 @@ function handValue(hand){
              console.log(array)
         for (var j =0; j<array.length ; j++){
             if (array[j]==='A' && (21-sum)> 11){
-                array[j]=1
-            }else if(array[j]==='A' && 21-sum< 11){
                 array[j]=11;
+            }else if(array[j]==='A' && 21-sum< 11){
+                array[j]=1;
             }
             sum=sum+array[j]
             if(sum>21){
