@@ -13,3 +13,36 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+function cardGame(arr) {
+	var count = 0;
+	var aLetter = 0;
+	var result = 0;
+	arr.forEach((element) => {
+		if (parseInt(element)) {
+			count += parseInt(element);
+		}else if(element === 'J' || element === 'Q' || element === 'K'){
+			count += 10;
+		}else if(element === 'A') {
+			aLetter++;
+		}
+	});
+	if(count > 21) {
+			result = countAce(count, aLetter, 1);
+	}else {
+			result = countAce(count, aLetter, 11);
+		if(result > 21) {
+			result = countAce(count, aLetter, 1);
+		}
+	}
+	return result;
+
+}
+
+function countAce(count, aLetter, value) {
+	while(aLetter) {
+		count += value;
+		aLetter--;
+	}
+	return count;
+}
