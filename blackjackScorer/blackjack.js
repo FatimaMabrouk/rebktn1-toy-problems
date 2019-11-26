@@ -13,3 +13,39 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+
+["2", "3", ..., "10", "J", "Q", "K" , "A"]
+
+function blackJack (array){
+	array.forEach(function(element){
+		if(element === 'A' || element === 'K' || element === 'Q' || element === 'J'){
+			element = 10;
+		} if (element === '2'){
+               element = 2;
+		}
+		if (element === '3'){
+			element = 3;
+		}
+		if( element === '4'){
+			element = 4
+		}
+		if (element === '5'){
+			element = 5;
+		}
+		if (element === '6'){
+			element = 6;
+		}
+	});
+    array.sum(arr)
+   
+}
+
+
+function sum(arr){
+	var result = 0;
+	for(var i = 0; i < arr.length; i++ ){
+		result += arr[i] 
+	}
+	return result;
+}
