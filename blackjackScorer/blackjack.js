@@ -13,3 +13,31 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+function blackJack(arrayofStrings) {
+	debugger;
+	//iterate
+return arrayofStrings.reduce ( function(accumulator, currentValue) {
+	if ( typeof(parseInt(currentValue)) === 'number') {
+		return	accumulator + parseInt(currentValue);
+	} else if (currentValue === 'K' || currentValue === 'J' || currentValue === 'Q') {
+	return	accumulator + 10;
+	}
+	else if (currentValue === 'A') {
+		var Idx = indexOf('A')
+		if (Idx < 0) {
+			return accumulator++;
+		} else {
+			for (var i = indexOf('A'); i >= 0; i--) {
+				if (typeof(parseInt(arrayofStrings[i])) === 'number') {
+					return	accumulator + 11;
+				}
+			}
+		}
+	}
+}, 0);
+}
+blackJack(["A"]);
+blackJack(["A", "J"])
+blackJack(["5", "3", "7"])
+blackJack(["5", "4", "3", "2", "A", "K"])
