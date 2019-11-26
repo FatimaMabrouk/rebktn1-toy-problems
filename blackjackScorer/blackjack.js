@@ -13,3 +13,29 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+function scoreHand(cards){
+    var score = 0;
+    var numAces = 0;
+    for(i=0;i<cards.length;i++){
+      console.log(cards[i]);
+      switch(cards[i]){
+        case 'A':
+        score += 11;
+        numAces++;
+        break;
+        case 'K':
+        case 'Q':
+        case 'J':
+        score += 10;
+        break;
+        default:
+        score += parseInt(cards[i]);
+      }
+  }
+     while (numAces > 0 && score > 21){
+     score -= 10;
+     numAces--;
+  }
+     return score;  
+  }
