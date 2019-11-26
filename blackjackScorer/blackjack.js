@@ -1,3 +1,4 @@
+
 /* Complete the function that determines the score of a hand in the card game Blackjack (aka 21).
 
 The function receives an array of strings that represent each card in the hand ("2", "3", ..., "10", "J", "Q", "K" or "A") and should return the score of the hand (integer).
@@ -45,3 +46,4 @@ blackjack(["A", "J"]);
 blackjack(["A", "10", "A"] );
 blackjack(["5", "3", "7"]);
 blackjack(["5", "4", "3", "2", "A", "K"]);
+
