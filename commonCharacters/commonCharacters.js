@@ -12,6 +12,24 @@
 
 
 
-var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+var commonCharacters = function(string1, string2) {   
+ var result =''
+  var longest ='';
+ var shortest='';
+ if (string1.length <= string2.length){
+   shortest= string1;
+  longest=string2;
+ }else{
+  longest=string1;
+  shortest=string2;
+ }
+  for (var i = 0 ; i <longest.length;i++){
+    if(shortest.indexOf(longest[i])===-1){
+      continue
+    }else{
+      result=result+longest[i]
+    }
+
+  }
+  return result
 };
