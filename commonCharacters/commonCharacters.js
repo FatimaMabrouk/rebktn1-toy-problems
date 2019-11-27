@@ -14,4 +14,11 @@
 
 var commonCharacters = function(string1, string2) {
   // TODO: Your code here!
+  var result = '';
+  for (var i = 0; i < string1.length; i++) {
+  	if (string2.indexOf(string1[i]) !== -1 && result.indexOf(string1[i]) && /[a-z-A-Z]/.test(string1[i])) {
+  		result += string1[i];
+	}	
+  }
+  return result;
 };
