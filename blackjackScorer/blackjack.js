@@ -45,6 +45,7 @@ function blackJack(arrayofStrings) {
 });
 return result;
 }
-blackJack(["A"]);blackJack(["A", "J"])
+blackJack(["A"]);
+blackJack(["A", "J"])
 blackJack(["5", "3", "7"])
 blackJack(["5", "4", "3", "2", "A", "K"])
