@@ -10,8 +10,21 @@
  * Extra credit: Extend your function to handle more than two input strings.
  */
 
-
-
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+	//creates an array of strings --->  ["acexivou", "aegihobu"]
+		// var arrayOfStrings = Array.from(arguments);
+		
+	//change str to array
+	var array1 = string1.split('');
+	var array2 = string2.split('');
+	var result = [];
+	var elm;
+	//iterates over the first array
+	for( var i = 0; i < array1.length; i++ ) {
+		//check if elements of array 1 are in array2
+		if( array2.includes( array1[i] ) ) { 
+			//if true push to result
+			result.push( array1[i] ) }
+	}
+	return result.join('');
 };
