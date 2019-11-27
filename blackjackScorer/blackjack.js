@@ -18,34 +18,27 @@ Examples
 ["2", "3", ..., "10", "J", "Q", "K" , "A"]
 
 function blackJack (array){
-	array.forEach(function(element){
-		if(element === 'A' || element === 'K' || element === 'Q' || element === 'J'){
-			element = 10;
-		} if (element === '2'){
-               element = 2;
-		}
-		if (element === '3'){
-			element = 3;
-		}
-		if( element === '4'){
-			element = 4
-		}
-		if (element === '5'){
-			element = 5;
-		}
-		if (element === '6'){
-			element = 6;
+	  var acc;
+	  var countAces = 0;
+	array.forEach(function(element, i){
+		if(element === 'K' || element === 'Q' || element === 'J'){
+			array[i] = 10;
+		} else if (element !== 'A'){
+		          array[i] = Number(element);
+		} else {
+			countAces++
+			array[i] = 1;
 		}
 	});
-    array.sum(arr)
-   
-}
+
+    acc =  array.reduce(function(result, element){
+        return result + element; 
+    }); 
+
+   if( acc + 10 <= 21 && countAces > 0){
+         acc = acc + 10;
+   }
+   return acc;
+};
 
 
-function sum(arr){
-	var result = 0;
-	for(var i = 0; i < arr.length; i++ ){
-		result += arr[i] 
-	}
-	return result;
-}
