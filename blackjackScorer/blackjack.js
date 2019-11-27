@@ -19,22 +19,24 @@ function blackJack(arrayofStrings) {
 	//iterate over input
  	arrayofStrings.forEach( function(currentValue,index) {
 	//check if the element is a number add it's value
-	if ( typeof(parseInt(currentValue)) === 'number') {
+	var parsed = parseInt(currentValue);
+	if ( typeof(parsed) === 'number') {
 			result + parseInt(currentValue);
 	//else it's a character add 10
-	} else if (currentValue === 'K' || currentValue === 'J' || currentValue === 'Q') {
-		result + 10;
+	} else if (parsed === 'K' || parsed === 'J' || parsed === 'Q') {
+		result += 10;
 	}
 	//Ace or A char has specaial pointing score
-	else if (currentValue === 'A') {
+	else if (parsed === 'A') {
 		// there is no number before A ?  score 1
 		if (index === 0) {
 			 result++;
 		// there is a number before A ? score 11;
 		} else {
-			for (var i = index; i >= 0; i--) {
-				if (typeof(parseInt(arrayofStrings[i])) === 'number') {
-						result + 11;
+			for (var i = index - 1; i >= 0; i--) {
+				var parsed1 = parseInt(arrayofStrings[i])
+				if (typeof(parsed1 === 'number')) {
+						result += 11;
 						break;
 				}
 			}
@@ -43,7 +45,6 @@ function blackJack(arrayofStrings) {
 });
 return result;
 }
-blackJack(["A"]);
-blackJack(["A", "J"])
+blackJack(["A"]);blackJack(["A", "J"])
 blackJack(["5", "3", "7"])
 blackJack(["5", "4", "3", "2", "A", "K"])

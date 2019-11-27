@@ -12,6 +12,15 @@
 
 
 
-var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+var commonCharacters = function(string1, string2, string3) {
+//assigning a string.
+  var dupstr = '';
+  //iteraition over string
+  for (var i = 0; i < string1.length; i++) {
+  	var index = string2.indexOf(string1[i]);
+  		if (index >=0) {
+  			dupstr += string2[index]
+  	}
+  }
+  return dupstr;
 };
