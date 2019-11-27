@@ -14,4 +14,24 @@
 
 var commonCharacters = function(string1, string2) {
   // TODO: Your code here!
+	var objOfChar = {}
+  for(var i = 0; i < arguments.length; i++) {
+  	var wordI = arguments[i]
+  	for(var j = 0; j < wordI.length; j++) {
+			if(objOfChar[wordI[j]] === undefined) {
+				objOfChar[wordI[j]] = 1;
+			} else {
+				objOfChar[wordI[j]] += 1;
+			}
+		}
+		
+  }
+	var result = '';
+	for (var key in objOfChar) {
+		if (objOfChar[key] >= 3) {
+			result += key;
+		}
+		console.log(arguments.length)
+	}
+	return result;
 };
