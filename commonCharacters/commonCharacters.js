@@ -13,5 +13,13 @@
 
 
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
-};
+	var commonChar = '';
+      for(var i = 0; i < string1.length; i++){
+          if(string2.includes(string1[i])){
+            	commonChar += string1[i]
+            }
+      	}
+     
+             
+          return commonChar;
+    };
