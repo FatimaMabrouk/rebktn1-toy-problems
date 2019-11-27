@@ -10,6 +10,7 @@
  * Extra credit: Extend your function to handle more than two input strings.
  */
 
+// I tried to solve it using two for loops and an if condition to check for the common characters and add hem to a new string varible and then return it.
 
 
 var commonCharacters = function(string1, string2) {
