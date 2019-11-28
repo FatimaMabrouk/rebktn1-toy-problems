@@ -34,7 +34,7 @@ function removNb(n){
 		a = i;
 		b = (sum - a) / (a + 1); //calulate what should be the value of b
 		//if b is an integer we push it in the result array
-		if(Number.isInteger(b)){
+		if(Number.isInteger(b) && b < n){
 			result.push([a, b])
 		}
 	}
