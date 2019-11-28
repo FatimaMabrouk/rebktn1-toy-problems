@@ -17,3 +17,22 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+
+function removNb(n){
+	var arr = [];
+	var sequence = [];
+	var sum = 0;
+
+	for (var i = 1; i <= n; i++) {
+		sequence.push(i);
+		sum+=i;
+	}
+	for (var i = 0; i < sequence.length; i++) {
+		for (var j = 0; j < sequence.length; j++) {
+			if(sequence[i]*sequence[j] === (sum - sequence[i] - sequence[j])){
+				arr.push([sequence[i],sequence[j]]);
+			}
+		}
+	}
+}
+removNb(26);
