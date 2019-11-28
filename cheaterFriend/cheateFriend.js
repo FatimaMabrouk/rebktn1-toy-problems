@@ -17,3 +17,21 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+function exclude(n){
+    var array = []
+    var result = []
+    var sum =0;
+    for(var i = 1; i <n+1 ;i++){
+        array.push (i)
+        sum=sum+i
+    }
+   for(var k=0; k <array.length; k++){
+       for(var j=0; i<array.length; j++){
+            if(array[k]*array[j]!== sum ){
+                result.push('('+array[k]+','+array[j]+')')
+            }
+       }
+   }
+   return result;
+
+}
