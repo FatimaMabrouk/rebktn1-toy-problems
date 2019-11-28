@@ -17,3 +17,26 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+function calculateSum(n){
+	var result = 0
+	for (var i = 1; i <= n; i++){
+		result += i;
+	}
+	return result
+}
+function removNb(n){
+	var sum = calculateSum(n); //get the sum of all the element from 1 to n
+	var a = 0;
+	var b = 0;
+	var result = [];
+	//loop form 1 to n
+	for (var i = 1; i <= n; i++){
+		a = i;
+		b = (sum - a) / (a + 1); //calulate what should be the value of b
+		//if b is an integer we push it in the result array
+		if(Number.isInteger(b)){
+			result.push([a, b])
+		}
+	}
+	return result;
+}
