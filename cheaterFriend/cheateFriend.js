@@ -17,3 +17,15 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+
+var removeNb = (n) => {
+	var furmila = n * (n + 1) / 2;
+	for(var i = Math.floor(n / 2); i <= n; i++) {
+		for(var j = Math.floor(n / 2); j <= n; j++) {
+			if(i * j === furmila - (i + j)) {
+				return [i, j];
+			}
+		}
+	}
+	return null
+}
