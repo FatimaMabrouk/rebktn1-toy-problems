@@ -1,4 +1,4 @@
-
+=
 //     A friend of mine takes a sequence of numbers from 1 to n (where n > 0).
 //     Within that sequence, he chooses two numbers, a and b.
 //     He says that the product of a and b should be equal to the sum of all numbers in the sequence, excluding a and b.
@@ -17,3 +17,30 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+function removNb(n) {
+	var rangeArr = range(1, n+1); 
+	var tottalsum = rangeArr.reduce((accumulator, currentValue) => accumulator + currentValue);
+	rangeArr.forEach()
+
+return tottalsum;	
+}
+
+
+var range = function(start, stop, step) {
+    if (stop == null) {
+      stop = start || 0;
+      start = 0;
+    }
+    if (!step) {
+      step = stop < start ? -1 : 1;
+    }
+
+    var length = Math.max(Math.ceil((stop - start) / step), 0);
+    var range = Array(length);
+
+    for (var idx = 0; idx < length; idx++, start += step) {
+      range[idx] = start;
+    }
+
+    return range;
+  };
