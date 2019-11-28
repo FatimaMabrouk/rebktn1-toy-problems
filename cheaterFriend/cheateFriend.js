@@ -20,11 +20,15 @@
 function removNb(n) {
 	var rangeArr = range(1, n+1); 
 	var tottalsum = rangeArr.reduce((accumulator, currentValue) => accumulator + currentValue);
-	rangeArr.forEach()
-
-return tottalsum;	
-}
-
+	
+	return rangeArr.filter(function (element,index,array) {
+		for (var i = 0; i < array.length ; i++) {
+				if((element * array[i]) === tottalsum - (element + array[i])) {
+					return [element , array[i]]
+				}	
+		}
+	});
+};
 
 var range = function(start, stop, step) {
     if (stop == null) {
@@ -41,6 +45,11 @@ var range = function(start, stop, step) {
     for (var idx = 0; idx < length; idx++, start += step) {
       range[idx] = start;
     }
-
     return range;
   };
+  // function map(array,func) {
+// 	var acc  = [];
+// 	forEach(array, function (element,index) {
+// 		// body...
+// 	}) 
+// }
