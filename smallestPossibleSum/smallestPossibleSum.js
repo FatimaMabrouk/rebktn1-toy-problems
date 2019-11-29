@@ -28,3 +28,33 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+function sum(array) {
+	sum = 0;
+	for(var i = 0; i < array.length; i++) {
+		sum += array[i];
+	}
+	return sum
+}
+
+var smallestSum = function(array) {
+	var min = Math.min(...array);
+	var count = 0;
+
+	while(count <= array.length - 1){
+
+		count = 0;
+		for(var i = 0; i < array.length; i++) {
+
+			if(array[i] > min){
+				array[i] -= min;		
+			} else {
+				count += 1;
+			}
+			min = Math.min(...array);
+		}
+	}
+	
+	
+	return sum(array);
+}
