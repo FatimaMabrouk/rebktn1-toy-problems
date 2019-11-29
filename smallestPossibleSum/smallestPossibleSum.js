@@ -1,4 +1,5 @@
-// Given an array X of positive integers, its elements are to be transformed by running the following operation on them as many times as required:
+// Given an array X of positive integers, its elements are to be transformed by running the following operation 
+//on them as many times as required:
 
 // if X[i] > X[j] then X[i] = X[i] - X[j]
 
@@ -28,3 +29,43 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+function greater(a, b) {
+    return a >= b 
+}
+function copy(tab) {
+    copyArr = tab.map((x) => x);
+    return copyArr
+}
+function check() {
+    var test = arr[0]
+    for (var i = 1; i < arr.length; i++){
+        if (arr[i] !== test) {
+            return false 
+        }
+    }
+    return true 
+}
+
+function samllestPossibleSum(arr) {
+    var index = arr.length - 1 
+    var count = 1
+    var copyArr = copy(arr)
+
+
+    function inner(index, copyArr) {
+        var start = copyArr[index]
+        copyArr.splice(index)
+       // var count += 1 
+        if (check(arr)) {
+            return arr[0]
+        }
+        for (var i = copyArr.length - 1; i >= 0; i--){
+            greater(start, copyArr[i]) ? copyArr[index] = start - copyArr[i] : copyArr[index] = copyArr[i] - start;
+        }
+        
+        inner(index-1,copyArr=copy(arr))
+
+    } 
+    
+}
