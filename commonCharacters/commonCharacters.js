@@ -31,7 +31,7 @@ var commonCharacters2 = function(...rest) {
       rest.splice(0, 1);
     } else {
       result.push(commonCharacters(rest[0], rest[1]));
-    rest.splice(0, 1);
+      rest.splice(0, 1);
     }
     
   }

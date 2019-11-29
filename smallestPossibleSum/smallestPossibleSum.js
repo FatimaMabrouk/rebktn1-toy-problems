@@ -1,4 +1,6 @@
-// Given an array X of positive integers, its elements are to be transformed by running the following operation on them as many times as required:
+// Given an array X of positive integers, 
+//its elements are to be transformed by running the following operation 
+//on them as many times as required:
 
 // if X[i] > X[j] then X[i] = X[i] - X[j]
 
@@ -28,3 +30,37 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+//this will work with good performance for small arrays
+function solution(x, i = x.length - 1){
+    if(i < 0){
+        var sum = 0;
+        x.forEach((a) => { sum += a});
+        return sum;
+    };
+    
+    if(x[i] > x[i - 1] && x[i] - x[i - 1] > 0){
+        x[i] = x[i] - x[i - 1]
+        return solution(x, i);
+    } else if(x[i - 1] > x[i]){
+        x[i - 1] = x[i - 1] - x[i]
+        return solution(x, i);
+    }
+    return solution(x, i = i - 1);
+}
+
+// this one for big arrays because recursion will cause Maximum call stack size exceeded error
+function solutionWithOutRecurion(x){
+    for(var i = x.length - 1; i > 0; i --){
+        for(var j = x.length - 2; j > 0; j--){
+            if(x[i] > x[i - 1] && x[i] - x[i - 1] > 0){
+                x[i] = x[i] - x[i - 1];
+            } else if(x[i - 1] > x[i]){
+                x[i - 1] = x[i - 1] - x[i];
+            }
+        }
+    }
+    var sum = 0;
+    x.forEach((a) => { sum += a});
+    return sum;
+}
