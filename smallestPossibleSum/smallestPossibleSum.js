@@ -28,3 +28,18 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+function solution(arr, ind = arr.length - 1) {
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[ind] > arr[i]) {
+			arr[ind] = arr[ind] - arr[i];
+		} else if(arr[i] > arr[ind]){
+			arr[i] = arr[i] - arr[ind];
+		}
+	}
+	if(ind > 0){
+		return solution(arr, ind - 1);
+	}else {
+    	return arr;
+    }
+}
