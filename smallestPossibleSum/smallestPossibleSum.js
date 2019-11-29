@@ -28,3 +28,56 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+//this solution work but takes too much time
+
+/*function smallestSum(array){
+	//sort the array
+	var newArray = array.sort((a, b) => a - b);
+	//loop from the end of the array
+	for (var i = newArray.length - 1; i >= 0; i--) {
+		//check if the counter is equal to the last number in the array
+		if(i === 0){
+			//check if the current number is bigger than the previous number
+			if(newArray[i] > newArray[i + 1]){
+				//assigin to the current number the difference between the to numbers 
+				newArray[i] = newArray[i] - newArray[i + 1] 
+				//start over to check if we can decrease the last the last element 
+				i = newArray.length - 1
+			}
+		}
+		//check if the current number is bigger than the next number
+		if(newArray[i] > newArray[i - 1]){
+			//assigin to the current number the difference between the to numbers 
+			newArray[i] = newArray[i] - newArray[i - 1] 
+			//increment the count
+			i++
+		}
+	}
+	console.log(newArray)
+	//return the sum of all the elements 
+	return newArray.reduce((acc, elm) => acc + elm)
+}
+*/
+function smallestSum(array){
+	//sort the array
+	var newArray = array.sort((a, b) => a - b);
+
+	//loop from the end of the array
+	for (var i = 0; i < newArray.length; i++) {
+		//check if the current number is smaller than the next number
+		if(newArray[i] < newArray[i + 1]){
+			//assigin to the current number the difference between the two numbers 
+			newArray[i + 1] = newArray[i + 1] - newArray[i] 
+			//decrement the count
+			i--
+		}
+	}
+	//while the first elemnt is bigger than the second
+	while(newArray[0] > newArray[1]){
+		//assigin to the current number the difference between the two numbers
+		newArray[0] -= newArray[1]
+	}
+	//return the sum of all the elements 
+	return newArray.reduce((acc, elm) => acc + elm)
+}
