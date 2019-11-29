@@ -27,4 +27,32 @@
 
 // Additional notes:
 
-// There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+// There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeo)
+function solution(arr){
+	var newArr = arr;
+	var sum = 0;
+	 
+	for (var i = 0; i < newArr.length; i++) {
+		for (var j = i; j < newArr.length; j++) {
+			
+           if(newArr[i] === newArr[j+1] ){
+              return ; ;
+		    }  
+		   else if(newArr[i] === newArr.length-1){
+                 
+                 newArr[i] = newArr[i] - newArr[j-1] ;
+                 solution(newArr);
+			}
+			else if(newArr[i] > newArr[j+1]){
+				newArr[i] = newArr[i] - newArr[j+1] ;
+				solution(newArr);
+			}
+			 
+		}
+	  } 
+	  for (var i = 0; i < newArr.length; i++) {
+	  	sum+=  newArr[i]
+	  }
+	  return sum;
+       
+	}
