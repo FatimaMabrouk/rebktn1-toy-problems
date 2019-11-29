@@ -18,16 +18,19 @@
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
 function removNb(n) {
-	var rangeArr = range(1, n+1); 
+
+	var rangeArr  = range(1, n+1); 
 	var tottalsum = rangeArr.reduce((accumulator, currentValue) => accumulator + currentValue);
-	
-	return rangeArr.filter(function (element,index,array) {
+	var resultArr = [];
+
+	 rangeArr.forEach(function (element,index,array) {
 		for (var i = 0; i < array.length ; i++) {
 				if((element * array[i]) === tottalsum - (element + array[i])) {
-					return [element , array[i]]
-				}	
+					resultArr.push(element , array[i]);
+			}	
 		}
 	});
+	 return resultArr;
 };
 
 var range = function(start, stop, step) {

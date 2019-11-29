@@ -28,3 +28,18 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+function weirdFunc(arrOfNumbers) {
+	debugger;
+//	var done = false;
+	var copyArr = arrOfNumbers.slice();
+		for (var i = arrOfNumbers.length - 1; i >= 0 ; i--) {
+			for (var j = 0; j < arrOfNumbers.length ; j++) {
+				if(arrOfNumbers[i] > arrOfNumbers[j])
+					copyArr[i] -=copyArr[j]
+	//			if () {}
+				console.log(copyArr[i])
+		}
+	}
+	return copyArr;
+}
