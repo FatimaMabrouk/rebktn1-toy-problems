@@ -33,6 +33,17 @@
 // Feel free to add helper functions if needed.
 
 
-var bubbleSort = function(array) {
+var bubbleSort = function(array, i = 0, sorted = false) {
   // Your code here.
+  if(sorted) return array;
+  else if(array[i] > array[i+1]) {
+    var holder = array[i];
+    array[i] = array[i+1];
+    array[i+1] = holder;
+  } 
+  var checker = true;
+  for(var k = 0; k < array.length - 1; k++){
+    checker = checker && (array[k] < array[k + 1]);
+  }
+  return bubbleSort(array, i + 1, checker);
 };
