@@ -26,7 +26,7 @@
 
 /*
  * Example usage:
- * bubbleSort([2, 1, 3]); // yields [1, 2, 3]
+ * bubbleSort([2, 1, 3]); // yields [1, 2, 3]  [3, 1, 4, 5, 7 ,2 ,9 ,0,10,11]
  *
 */
 
@@ -35,4 +35,25 @@
 
 var bubbleSort = function(array) {
   // Your code here.
+    var temp = 0;
+    var index = 0
+     for (var j = 0; j < array.length; j++) {
+
+     	for (var i = 1; i < array.length; i++) {
+
+      	   if(array[index] > array[i]){
+  		      temp  = array[index];
+  		      array[index]  = array[i];
+  		      array[i]  = temp; 
+              index ++;
+  	}   else{
+  		   index++ 
+  	}
+  }
+     index = 0;
+     }
+    
+  return array;
 };
+bubbleSort([3, 1, 4, 5, 7 ,2 ,9 ,0,10,11])
+// time complexity is O(n)
