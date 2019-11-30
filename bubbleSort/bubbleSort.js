@@ -34,5 +34,35 @@
 
 
 var bubbleSort = function(array) {
-  // Your code here.
-};
+	for (var i = 0; i < array.length; i++) {
+		for (var j = i+1; j < array.length; j++) {
+			if (array[i] > array[j]) {
+				//swaping
+				var temp;
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+				
+			}	
+		}
+	}
+	return array;
+}
+//recursion approach, yes I can do it ,
+var bubbleSort = function(array) {
+var copyOfArr =	array.slice();
+	function doSort(copyOfArr, index) {
+		var index = index || 0;
+		if (index === copyOfArr.length - 1) {
+			return copyOfArr;
+		}
+		if (copyOfArr[index] > copyOfArr[index+1]) {
+			var temp;
+				temp = copyOfArr[index];
+				copyOfArr[index] = copyOfArr[index+1];
+				copyOfArr[index+1] = temp;
+		}
+		return doSort(copyOfArr, index+1);
+	}
+	doSort(copyOfArr);
+}

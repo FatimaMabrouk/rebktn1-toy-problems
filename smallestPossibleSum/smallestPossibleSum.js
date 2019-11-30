@@ -31,15 +31,17 @@
 
 function weirdFunc(arrOfNumbers) {
 	debugger;
-//	var done = false;
+	//sshallow slice of the array.
 	var copyArr = arrOfNumbers.slice();
-		for (var i = arrOfNumbers.length - 1; i >= 0 ; i--) {
 			for (var j = 0; j < arrOfNumbers.length ; j++) {
-				if(arrOfNumbers[i] > arrOfNumbers[j])
-					copyArr[i] -=copyArr[j]
-	//			if () {}
-				console.log(copyArr[i])
-		}
+				//find the max value
+			var max = Math.max(...copyArr);
+					//find max value index
+			var index = [copyArr.indexOf(max)]
+			// bigger ?
+			
+				if(arrOfNumbers[index] > arrOfNumbers[j])
+					copyArr[index] -=copyArr[j]
 	}
 	return copyArr;
 }
