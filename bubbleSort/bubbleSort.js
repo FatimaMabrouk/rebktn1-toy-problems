@@ -22,17 +22,50 @@
  * Moar credits: Do you need to consider every element every time you iterate
  * through the array? Make it happen, boss. Again: Has the time complexity of
  * your algorithm changed?
-*/
+ */
 
 /*
  * Example usage:
  * bubbleSort([2, 1, 3]); // yields [1, 2, 3]
  *
-*/
+ */
 
 // Feel free to add helper functions if needed.
 
-
+//for this the time complexity is O(n²)
 var bubbleSort = function(array) {
-  // Your code here.
+  //make a copy of the array
+  var copyArray = array.map(elm => {
+    return elm;
+  });
+  //use recursion to repeat the steps
+  var innerFunction = (arr, nbrOfChanges) => {
+    //check if the number of changes equal to 0
+    if (!nbrOfChanges) {
+      //return the sorted array
+      return arr;
+    }
+    //loop over the array
+    for (var i = 0; i < arr.length; i++) {
+      //if i is equal to zero
+      if (!i) {
+        // reset the number of changes to zero
+        nbrOfChanges = 0;
+      }
+      //check if the current element is bigger than the next
+      if (arr[i] > arr[i + 1]) {
+        //swap the two elements
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        //increment the number of changes
+        nbrOfChanges++;
+      }
+      //check if i is equal to the  index of the last element
+      if (i === arr.length - 1) {
+        //call the function again to repeat the steps
+        return innerFunction(arr, nbrOfChanges);
+      }
+    }
+  };
+  //call the function and return it to get the sorted array
+  return innerFunction(copyArray, 1);
 };
