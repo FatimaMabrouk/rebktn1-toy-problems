@@ -35,4 +35,23 @@
 
 var bubbleSort = function(array) {
   // Your code here.
+  var holder = 0;
+  for (var i = 0; i < array.length - 1; i++) {
+  	if(array[i] - array[i + 1] > 0) {
+  		change(i, i + 1)
+  		// holder = array[i];
+  		// array[i] = array[i + 1];
+  		// array[i + 1] = holder;
+  	}
+  }
+  for (var i = array.length - 1; i > 0; i--) {
+   if(array[i] - array[i - 1] < 0) {
+   	change(i, i - 1);
+   }
+  }
+  function change(first, second){
+		holder = array[first];
+		array[first] = array[second];
+		array[second] = holder;
+  }
 };
