@@ -34,5 +34,21 @@
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+   for(var i = 0; i < array.length; i++){
+   	if(array[i] > array[i + 1]){
+ 
+   		array.push(array[i])
+   		array.splice(i+1, 1)
+   	
+   	}
+   	for(var j = array.length-1; j !== 0; j--) {
+   		if(array[j] < array[j-1]){
+   			array.unshift(array[j])
+   			array.splice(j -1, 1)
+        
+   		}
+   	}
+   	}
+   return array;
+   
 };
