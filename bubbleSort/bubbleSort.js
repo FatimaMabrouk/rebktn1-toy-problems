@@ -34,5 +34,20 @@
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+var  temp = 0; 
+var  count = array.length;
+while(count>0){
+  for (var i = 0; i <array.length; i++){
+    if (array[i] > array [i+1]){
+      temp = array [i] ;
+      array[i]= array[i+1] ;
+      array[i+1] = temp; 
+    }else {
+      count=count-1;
+    }
+  }
+}
+return array
 };
+
+// tme complexity O(n**2)
