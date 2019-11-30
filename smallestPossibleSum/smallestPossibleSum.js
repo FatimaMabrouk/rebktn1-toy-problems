@@ -29,6 +29,8 @@
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
 
+
+//Solution 1
 function findNod(a, b) {
     var r = 1;
     while (r != 0) {
@@ -50,7 +52,7 @@ function solution(numbers) {
     return nod * n;
 }
 
-
+// Solution 2
 
 function solution(numbers) {
     return numbers.length * numbers.reduce((p, c) => gcd(p, c));
@@ -59,4 +61,27 @@ function solution(numbers) {
 function gcd(a, b) {
     if (b === 0) return a;
     else return gcd(b, a % b);
+}
+
+
+// Solution 3 
+function solution(arr){
+if(equalNums(arr)){
+  return arr.reduce(function(a,b){
+    return a + b;
+    });
+  } else {
+    //sort the array
+    var sorted = arr.sort(function(a,b){
+      return a-b;
+    });
+    var last = sorted[arr.length-1] - sorted[0]
+    sorted.pop();
+    sorted.push(last);
+    return solution(sorted);
+  }
+}
+// check if all numbers are equal
+function equalNums(arr){
+  return arr.reduce(function(a, b){ return (a === b) ? a : NaN; });
 }
