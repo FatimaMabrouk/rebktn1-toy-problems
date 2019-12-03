@@ -16,43 +16,19 @@
  //2 
 
 var binarySearch = function (array, target) {
-	var i = 0
-	var	midIdx = Math.round(array.length - 1 / 2);
-	var j = midIdx + 1;
-	var root  = this.addNode(array[midIdx]);
+return (!Array.isArray(array)) && new Error('Wrong Input'); 
 
-	this.right = null;
-	this.left = null;
-	this.index = null;
-	root.addNode()
-};
-
-
-binarySearch.prototype.addNode = function(value,index) {
-	if (!this.left ) {
-		if (this.value > value) {
-			this.index = index
-		return	this.left = new binarySearch(value,index)
-		}
-	}
-	if (!this.right ) {
-		if (this.value < value) {
-			return	this.right = new binarySearch(value) 
-			}
-	}
-};
-
-binarySearch.prototype.contains(target) {
-	if (this.value === target) {
-		return true;
-	}
-	if ( target > this.value) {
-		return this.right.contains;
-	}
-	if ( target < this.value) {
-		return this.left.contains;
-		}
-	if (this.contains) {
-		return ;
-	}
+ var min = arguments[2] || 0;
+ var max = arguments[3] || array.length-1;
+ var mid = Math.floor( (max + min) / 2 );
+//checking if the target
+ if(array[mid] === target ){
+ 	return mid;
+ }
+//base case;
+ if( max < min || min > max ){
+ 	return null;
+ }
+  	return array[mid] < target && binarySearch( array, target, mid + 1, max);
+  	return array[mid] > target && binarySearch( array, target, min, mid-1);
 }
