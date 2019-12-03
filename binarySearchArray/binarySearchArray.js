@@ -10,6 +10,17 @@
  * console.log(index); // null
  */
 
-var binarySearch = function (array, target) {
+var binarySearch = function (array, target, start = 0, end = array.length) {
+	var mid = Math.floor((end + start) / 2);
+	if(target == array[mid]) {
+		return mid;
+	}else if(array.length - 1 === mid){
+		return null;
+	}else if(target > array[mid]) {
+
+		return binarySearch(array, target, mid, end)
+	}else if(target < array[mid]){
+		return binarySearch(array, target, start, mid)
+	}
 };
 
