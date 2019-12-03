@@ -11,5 +11,18 @@
  */
 
 var binarySearch = function (array, target) {
-};
-
+	var result;
+	var mid = array[0] + array.length/ 2; 
+	 mid = Math.floor(mid)
+	if(array.includes(target)){
+		return array.indexOf(target)
+	}
+	if(target < mid){
+		binarySearch(array, target)
+		
+	}
+    if(target > mid){
+    	binarySearch(array, target)
+    }
+	
+}
