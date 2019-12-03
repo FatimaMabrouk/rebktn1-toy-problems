@@ -10,6 +10,14 @@
  * console.log(index); // null
  */
 
-var binarySearch = function (array, target) {
+var binarySearch = function (array, target, mid) {
+    mid = mid || Number.parseInt(array.length / 2);
+    if(target === array[mid]) return mid;
+    if(target < array[mid])return binarySearch(array, target, Number.parseInt(mid / 2));
+    if(target > array[mid]){
+        if( Number.parseInt(mid + ((array.length -1 - mid ) / 2)) === mid) return null;
+        return binarySearch(array, target, Number.parseInt(mid + ((array.length -1 - mid ) / 2)))
+    }
+    return null;
 };
 
