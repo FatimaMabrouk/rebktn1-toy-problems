@@ -34,5 +34,18 @@
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+if(array[0] === Math.min(...array) && array[array.length -1] === Math.max(...array)){
+	return array;
+}  
+
+for(var i = 0; i< array.length; i++){
+  	if(array[i] > array[i + 1]){
+  		var bigger = array[i];
+		array[i] = array[i+1];
+		array[i+1] = bigger;
+  	}
+  }
+ return bubbleSort(array);
 };
+
+// it takes O(n^2w)
