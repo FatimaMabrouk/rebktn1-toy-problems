@@ -39,14 +39,14 @@ var bubbleSort = function(array) {
     return elm;
   });
   //use recursion to repeat the steps
-  var innerFunction = (arr, nbrOfChanges) => {
+  var innerFunction = (arr, nbrOfChanges, length) => {
     //check if the number of changes equal to 0
     if (!nbrOfChanges) {
       //return the sorted array
       return arr;
     }
     //loop over the array
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < length; i++) {
       //if i is equal to zero
       if (!i) {
         // reset the number of changes to zero
@@ -60,12 +60,12 @@ var bubbleSort = function(array) {
         nbrOfChanges++;
       }
       //check if i is equal to the  index of the last element
-      if (i === arr.length - 1) {
+      if (i === length - 1) {
         //call the function again to repeat the steps
-        return innerFunction(arr, nbrOfChanges);
+        return innerFunction(arr, nbrOfChanges, length - 1);
       }
     }
   };
   //call the function and return it to get the sorted array
-  return innerFunction(copyArray, 1);
+  return innerFunction(copyArray, 1, copyArray.length);
 };
