@@ -34,21 +34,23 @@
 
 
 var bubbleSort = function(array) {
-   for(var i = 0; i < array.length; i++){
-   	if(array[i] > array[i + 1]){
- 
-   		array.push(array[i])
-   		array.splice(i+1, 1)
-   	
-   	}
-   	for(var j = array.length-1; j !== 0; j--) {
-   		if(array[j] < array[j-1]){
-   			array.unshift(array[j])
-   			array.splice(j -1, 1)
-        
-   		}
-   	}
-   	}
-   return array;
+ for(var i = 0; i < array.length; i++){
+ 	if(array[i] > array[i + 1]){
+ 		swap(array, i);
+
+ }
+       	
+ 	}
+
+ 	   return array;
    
 };
+
+
+function swap(array, i) {
+      var temp = array[i];
+  
+     array[i] = array[i + 1]
+     array[i + 1] = temp;
+
+    }
