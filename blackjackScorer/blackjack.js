@@ -13,3 +13,34 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+var blackJack = function(hand) {
+    let score = 0;
+    let scoring = {
+        'A': [1, 11],
+        'J': 10,
+        'Q': 10,
+        'K': 10,
+    }
+    // Count how many ACE on hand
+    let countOfAce = hand.filter((card)=>card === 'A').length;
+
+    // Check the cards on hand and count score
+    hand.forEach((card)=>{
+        // If card was ACE and count is less than two count it as 11
+        //  Else count it as 1
+        if (card === 'A') {
+            if (countOfAce < 2) {
+                score += scoring[card][1];
+            } else {
+                score += scoring[card][0];
+            }
+        } else if (card === 'J') {
+            score += scoring[card];
+        } else if (card >= 2 && card <= 10) {
+            score += parseInt(card);
+        }
+    }
+    );
+    return score;
+}
