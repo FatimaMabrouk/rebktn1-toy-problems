@@ -21,3 +21,39 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+
+//================ OICE ==============
+//input	 = decimal number
+//Output = string
+
+
+
+var dec2FactString = function (nb) {
+
+	var string         = arguments[1] ||'';
+	var factorialIndex = arguments[2] || 0; 
+	var base           = 0;
+	//recurisely
+	// stop condtion when the nb reaches 0
+	if (nb === 0) {
+		//return the string of factorials
+		return string;
+	}	
+	// while mod is is not equal to zero 
+	while(nb % base !== 0) {
+		base++;
+	}
+	nb     -= base * factorial(factorialIndex);
+	string += `${base}X${factorialIndex}!`;
+	
+	dec2FactString(nb, string, factorialIndex +1);
+};
+
+
+var factorial = function (number) {
+	if (number === 0) {
+		return 1;
+	}
+		return number * factorial(number-1)
+};
