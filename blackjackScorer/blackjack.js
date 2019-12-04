@@ -13,3 +13,32 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+
+["2", "3", ..., "10", "J", "Q", "K" , "A"]
+
+function blackJack (array){
+	  var acc;
+	  var countAces = 0;
+	array.forEach(function(element, i){
+		if(element === 'K' || element === 'Q' || element === 'J'){
+			array[i] = 10;
+		} else if (element !== 'A'){
+		          array[i] = Number(element);
+		} else {
+			countAces++
+			array[i] = 1;
+		}
+	});
+
+    acc =  array.reduce(function(result, element){
+        return result + element; 
+    }); 
+
+   if( acc + 10 <= 21 && countAces > 0){
+         acc = acc + 10;
+   }
+   return acc;
+};
+
+
