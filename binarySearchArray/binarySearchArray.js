@@ -15,7 +15,7 @@
  //1 adding the array elements into the tree as a nodes
  //2 
 
-var binarySearch = function (array, target, startIdx = 0, endIdx = arrOfNumbers.length-1) => {
+var binarySearch =  (arrOfNumbers, target, startIdx = 0, endIdx = arrOfNumbers.length-1) => {
 	return (!Array.isArray(arrOfNumbers)) && new Error('Wrong Input');//Edge Cases: not array input
 
  var midIdx = Math.floor( (endIdx + startIdx) / 2 );                  //midIdx index calculation
