@@ -1,4 +1,5 @@
-// Coding decimal numbers with factorials is a way of writing out numbers in a base system that depends on factorials, rather than powers of numbers.
+// Coding decimal numbers with factorials is a way of writing out numbers in a base system that depends on factorials,
+// rather than powers of numbers.
 
 // In this system, the last digit is always 0 and is in base 0!.
 // The digit before that is either 0 or 1 and is in base 1!. The digit before that is either 0, 1, or 2 and is in base 2!.
@@ -16,8 +17,35 @@
 
 // 36! − 1 = 37199332678990121746799944815083519999999910 (base 10)
 
-// We will code two functions. The first one will code a decimal number and return a string with the factorial representation : dec2FactString(nb)
+// We will code two functions. The first one will code a decimal number and 
+//return a string with the factorial representation : dec2FactString(nb)
 
-// The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
+// The second one will decode a string with a factorial representation and
+// produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+
+function dec2FactString(nb, result = [], i = 1) {
+	if(!nb) return result.join('');
+	result.unshift(nb % i);
+	return dec2FactString(Math.floor(nb / i), result, i + 1)
+}
+
+function factString2Dec(str){
+	var result = 0;
+	var x = 0
+	for (var i = str.length - 1; i >= 0; i--) {
+		result += factorial(x) * parseInt(str[i])
+		x++
+	}
+	return result
+}
+
+
+function factorial(n){
+	if(n <= 1){
+		return 1;
+	}
+	return n * factorial(n - 1) 
+}
