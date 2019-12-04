@@ -13,3 +13,16 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+function blackJack(arr){
+	var acc = 0;
+	for(var elem of arr){
+
+		elem ===  "K" ||  elem === "Q" || elem === "J" ?
+			acc = acc + 10  : elem === "A" ? 
+				acc = acc + 11 : acc =  +elem + acc
+
+
+	}
+	return acc
+}
