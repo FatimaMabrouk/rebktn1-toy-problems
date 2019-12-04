@@ -1,11 +1,16 @@
-/* Complete the function that determines the score of a hand in the card game Blackjack (aka 21).
+/* Complete the function that determines the score of a hand in the card
+// game Blackjack (aka 21).
 
-The function receives an array of strings that represent each card in the hand ("2", "3", ..., "10", "J", "Q", "K" or "A") and should return the score of the hand (integer).
+The function receives an array of strings that represent 
+each card in the hand ("2", "3", ..., "10", "J", "Q", "K" or "A") 
+and should return the score of the hand (integer).
 Scoring rules:
 
-Number cards count as their face value (2 through 10). Jack, Queen and King count as 10. An Ace can be counted as either 1 or 11.
+Number cards count as their face value (2 through 10).
+Jack, Queen and King count as 10. An Ace can be counted as either 1 or 11.
 
-Return the highest score of the cards that is less than or equal to 21. If there is no score less than or euqal to 21 return the smallest score more than 21.
+Return the highest score of the cards that is less than or equal to 21
+If there is no score less than or euqal to 21 return the smallest score more than 21.
 Examples
 
 ["A"]                           ==>  11
@@ -13,3 +18,36 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+
+
+function blackjac(array){
+	// var tostring 
+     var score = 0;
+     // var queen = 'Q';
+     // var jack = 'J';
+     // var king = 'K';
+     var result = [];
+     var sum = 0
+     var count = 0;
+     var ace = 11;
+     var kqj = 10;
+     var aceScore = 11;
+	 for(var i = 0 ; i < array.length; i++){
+       if(array[i] === ('K')  || array[i] ===  ('A') ||array[i] === ('Q')){
+         result.push(kqj);
+         for(var j = 0; j < result.length; j++){
+         	 sum += result[j]
+         }
+        } else if(array[i] === ('a')) {
+        	result.push(ace);
+        }
+   }
+      return result;
+
+     }
+
+     // take a parmeter array 
+      /*  
+
+      */
