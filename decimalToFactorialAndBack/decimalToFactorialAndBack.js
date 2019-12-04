@@ -21,3 +21,48 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+function factorial(number){
+    if(!number) return 0;
+    var result = 1;
+    while(number !== 1){
+        result = result * number;
+        number--;
+    }
+    return result;
+}
+
+function dec2FactString(nb){
+    var stringNb = nb.toString();
+    var check;
+    var result = '';
+    var base = 0;
+    while(check !== nb){
+        if(base > 35) return 'maximum base is 35';
+        var current = Number.parseInt(stringNb.substr(stringNb.length - base - 1, 1));
+        console.log(current)
+        for(var i = 0; i <= current; i++){
+            if(factorial(base) * i > nb){
+                check =+ factorial(base) * (i - 1);
+                console.log(check)
+                result = result + factorial(base) * current * i;
+                console.log(result)
+                break;
+            }
+        }
+        base++;
+    }
+    // var current = Number.parseInt(stringNb.substr(stringNb.length - base - 1, 1));
+    // while(current.toString() !== stringNb[0]){
+    //     if(base > 35) return 'maximum base is 35';
+    //     for(var i = 0; i < current; i++){
+    //         if(factorial(base) * current * i+1 > nb){
+    //             check =+ factorial(base) * current * i;
+    //             console.log(check)
+    //             result = result + factorial(base) * current * i;
+    //             console.log(result)
+    //         }
+    //     }
+    // }
+    return result;
+}
