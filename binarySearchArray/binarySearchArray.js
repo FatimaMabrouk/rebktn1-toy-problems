@@ -15,20 +15,13 @@
  //1 adding the array elements into the tree as a nodes
  //2 
 
-var binarySearch = function (array, target) {
-return (!Array.isArray(array)) && new Error('Wrong Input'); 
+var binarySearch = function (array, target, startIdx = 0, endIdx = arrOfNumbers.length-1) => {
+	return (!Array.isArray(arrOfNumbers)) && new Error('Wrong Input');//Edge Cases: not array input
 
- var min = arguments[2] || 0;
- var max = arguments[3] || array.length-1;
- var mid = Math.floor( (max + min) / 2 );
-//checking if the target
- if(array[mid] === target ){
- 	return mid;
- }
-//base case;
- if( max < min || min > max ){
- 	return null;
- }
-  	return array[mid] < target && binarySearch( array, target, mid + 1, max);
-  	return array[mid] > target && binarySearch( array, target, min, mid-1);
-}
+ var midIdx = Math.floor( (endIdx + startIdx) / 2 );                  //midIdx index calculation
+
+ 	return (arrOfNumbers[midIdx] === target )         && midIdx;     //Base Case & target found
+ 	return ( endIdx < startIdx || startIdx > endIdx ) && null;       //Base Case & target not found & return null
+  	return arrOfNumbers[midIdx] < target              && binarySearch( arrOfNumbers, target, midIdx + 1, endIdx); 
+  	return arrOfNumbers[midIdx] > target              && binarySearch( arrOfNumbers, target, startIdx, midIdx-1);
+};
