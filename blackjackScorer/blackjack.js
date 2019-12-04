@@ -13,3 +13,26 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+var blackjack=function(array){
+var score=0;
+obj={A:11,
+	J:10,
+	Q:10,
+	K:10
+}
+aValue=[];
+array.forEach(function(element){
+	if(element==='A'){
+		aValue.push(1);
+	}
+	score=score +(obj[element] || parseInt(element))
+})
+for (var i = 0; i < aValue.length; i++) {
+if(score > 21){
+	 score=score-10;
+}
+else {break;}
+}
+return score
+}
