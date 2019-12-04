@@ -21,3 +21,63 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+// base array [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9]
+
+/*function factorial( number ) {
+	if(number === 0) return 1;
+	return number * factorial( number -1 )
+}
+
+
+Math.floor (463 / factorial(5))  > 1 ; ====> 3
+Math.floor (463 % factorial(5)) ====> 103
+
+decimal become 103
+
+
+Math.floor (decimal / factorial(array[i]))
+
+
+
+*/
+
+
+var baseArray = [];
+var exp = '';
+
+function factorial( number ) {
+	if(number === 0) return 1;
+
+	return number * factorial( number -1 )
+}
+
+for(var i = 0; i < 10; i++) {
+	baseArray[i] = factorial(i);
+}
+
+
+function dec2FactString(decimal, array) {
+	var array = array;
+	for(var i = 0; i < array.length; i ++) {
+		var times = Math.floor(decimal /  array[i]);
+		console.log(times)
+		if ( times > 1) {
+			exp += times + '*' + i + '!' ;
+			if (decimal % baseArray === 0) {
+				return
+			} else {
+			    array = array.slice(i);
+			dec2FactString(decimal % baseArray, array);	
+			}
+		}
+	}
+    console.log(exp)
+}
+
+dec2FactString(463, baseArray)
+
+function factString2Dec(string) {
+
+}
+}
