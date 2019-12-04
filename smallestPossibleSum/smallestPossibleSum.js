@@ -37,7 +37,7 @@ function copy(tab) {
     copyArr = tab.map((x) => x);
     return copyArr
 }
-function check() {
+function check(arr) {
     var test = arr[0]
     for (var i = 1; i < arr.length; i++){
         if (arr[i] !== test) {
@@ -67,5 +67,6 @@ function samllestPossibleSum(arr) {
         inner(index-1,copyArr=copy(arr))
 
     } 
+    inner(index, copyArr)
     
 }
