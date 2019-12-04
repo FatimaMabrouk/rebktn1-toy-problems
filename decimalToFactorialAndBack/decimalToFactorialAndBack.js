@@ -21,3 +21,13 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+function dec2FactString(nb){
+    var factNum=[]
+    while (nb > 0) { 
+        factNum.push( nb % 10); 
+        n = n / 10; 
+    } 
+    
+    return factNum
+}
