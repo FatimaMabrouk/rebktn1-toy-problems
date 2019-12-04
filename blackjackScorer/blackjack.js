@@ -13,3 +13,38 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+function handValue(hand){
+    var array =[];
+    var temp =0;
+    sum=0;
+    for (var i =0 ; i <hand.length;i++){
+        
+        if(hand[i]==='J'||hand[i]==='K'||hand[i]==='Q'){
+        temp=10;
+        array.push(temp)
+        }else if (hand[i]==='A'){
+            array.push(hand[i])
+        }
+        else{
+            array.push(parseInt(hand[i]))
+        }
+    }
+             console.log(array)
+        for (var j =0; j<array.length ; j++){
+            if (array[j]==='A' && (21-sum)> 11){
+                array[j]=11;
+            }else if(array[j]==='A' && 21-sum< 11){
+                array[j]=1;
+            }
+            sum=sum+array[j]
+            if(sum>21){
+                console.log('sd')
+                return sum
+
+            }
+
+        }
+        return sum
+
+                
+    }
