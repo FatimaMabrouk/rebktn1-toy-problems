@@ -21,3 +21,37 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+//function that give the factorial of any number
+function factorial(n) {
+    if (n === 0) {
+        return 0;
+    }
+    if (n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1)
+}
+//function that will sum all the numbers in  an array
+function sum(array) {
+    if (array.length === 0) {
+        return 0;
+    }
+    return array[0] + sum(array.slice(1));
+}
+function factString2Dec(str) {
+    //transform the string into an array and reverse it
+    string = str.split('').reverse();
+    result = [];
+    //loop over the new array
+    for (var i = 0; i < string.length; i++) {
+        //push into the result (the factorial of i * the current elm in the array)
+        result.push(parseInt(string[i]) * factorial(parseInt(i)));
+    }
+    //return the sum of the result array
+    return sum(result);
+}
+
+function dec2FactString(nb) {
+
+}
