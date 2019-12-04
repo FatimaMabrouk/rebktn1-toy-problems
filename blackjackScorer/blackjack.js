@@ -13,3 +13,29 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+var blackJack = (hand) => {
+	var aceCount = 0;
+	var result = 0; 
+	
+	for(var card in hand){
+		switch(hand[card]) {
+			case 'K':
+			case 'Q':
+			case 'J':
+				result += 10;
+			break;
+
+			case 'A':
+				result += 11;
+				aceCount++;
+			break;
+
+			default:
+				result += Number(hand[card])
+		}
+	}
+	while(aceCount > 0 && result > 21) {
+		result -= 10
+	}
+	return result;
+} 
