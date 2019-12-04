@@ -13,3 +13,49 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+
+var blackjackScore = function(array){
+
+  var count = 0 ;
+
+  for (var i = 0 ; i < array.length ; i++) {
+
+    if (count > 21 ) {
+      
+    for (var i = 0 ; i < array.length ; i++) {
+
+      if ( array[i] === "A") {
+      count = count + 1 ;
+
+    }
+    else if ( array[i] === 'K' ||  array[i] === 'Q' || array[i] === 'J' ){
+
+      count = count + 10 ; 
+
+    }else{
+      count = count + parseInt(array[i]);
+    }
+
+    }
+    return count ;
+
+    }else if (count <= 21 ) {
+      
+    if ( array[i] === "A") {
+      count = count + 11 ;
+    }
+    else if ( array[i] === 'K' ||  array[i] === 'Q' || array[i] === 'J' ){
+      count = count + 10 ; 
+    }else{
+      count = count + parseInt(array[i])
+    }
+  }
+  }
+  return count ;
+}
+
+
+
+
+
