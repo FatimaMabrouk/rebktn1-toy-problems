@@ -13,3 +13,25 @@ Examples
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
 ["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+
+function maxScore(handOfCards) {
+	var score =0
+	var aces = handOfCards.filter(function(element) {return element ==="A"})
+	
+	for(var i=0; i< handOfCards.length; i++) {
+		if(handOfCards[i]!=="A" &&handOfCards[i]!=="J" &&handOfCards[i]!=="Q" &&handOfCards[i]!=="K") {
+			score += Number(handOfCards[i])
+		}
+		else if(handOfCards[i] ==="J" ||handOfCards[i]==="Q"  ||handOfCards[i] ==="K") {
+			score +=10
+		}
+	}
+	
+	if((score + aces.length*11) <= 21) {
+		return  score + aces.length*11
+	}else{
+		return score + aces.length *1
+	}
+
+}
