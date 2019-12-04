@@ -21,3 +21,25 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+//-------------------------------------------------------------------------//
+// sorry but i didn't understand the question i didn't understatnd thid part at all (decimal number 463 is coded as "341010" ) //
+//-------------------------------------------------------------------------//
+
+function dec2FactString(nb){
+	var result = 1;
+    for (var i = nb; i > 0; i--) {
+    	result *= i;
+    }
+    return result;
+}
+
+function factString2Dec(str){
+	var result = 0; 
+	
+		result= dec2FactString(parseInt(str))
+	
+	return result;
+}
+//-------------------------------------------------------------------------//
+// sorry but i didn't understand the question i didn't understatnd thid part at all (decimal number 463 is coded as "341010" ) //
+//-------------------------------------------------------------------------//
