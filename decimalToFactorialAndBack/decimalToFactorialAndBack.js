@@ -9,7 +9,7 @@
 // decimal number 463 is coded as "341010":
 
 // 463 (base 10) = 3×5! + 4×4! + 1×3! + 0×2! + 1×1! + 0×0!
-
+1X0!1X1!1X2!1X3!1X4!1X5!1X6!"
 // If we are limited to digits 0...9 the biggest number we can code is 10! - 1.
 
 // So we extend 0..9 with letters A to Z. With these 36 digits we can code up to
@@ -41,12 +41,10 @@ var dec2FactString = function (nb) {
 		return string;
 	}	
 	// while mod is is not equal to zero 
-	while(nb % base !== 0) {
-		base++;
-	}
-	nb     -= base * factorial(factorialIndex);
+
+	nb     -= nb %factorialIndex * factorial(factorialIndex);
 	string += `${base}X${factorialIndex}!`;
-	
+
 	dec2FactString(nb, string, factorialIndex +1);
 };
 
