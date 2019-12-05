@@ -31,5 +31,7 @@ function characterFrequency (str) {
 		buket[1] = obj[key]
 		result.push(buket)
 	}
-	return result
+
+	return result.sort()
 }
+
