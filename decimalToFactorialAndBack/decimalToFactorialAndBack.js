@@ -30,13 +30,7 @@ var factorial = function(nb) {
 	return result;
 }
 var dec2FactString = function(nb) {
-	var result = 1;
-	var r = '';
-	for(var i = 2; i <= nb; i++) {
-		result *= i;
-		r += result
-	}
-	return r;
+	
 };
 
 
