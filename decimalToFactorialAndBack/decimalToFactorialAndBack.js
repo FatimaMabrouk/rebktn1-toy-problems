@@ -36,7 +36,7 @@ var dec2FactString = function (nb) {
 	var base           = 0;
 	//recurisely
 	// stop condtion when the nb reaches 0
-	if (nb === 0) {
+	if (nb <= 0) {
 		//return the string of factorials
 		return string;
 	}	

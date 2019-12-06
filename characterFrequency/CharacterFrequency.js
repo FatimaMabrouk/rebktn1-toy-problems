@@ -12,23 +12,10 @@ characterFrequency("mississippi")  -->  [ [ "i", 4 ], [ "s", 4 ], [ "p", 2 ], [ 
 characterFrequency("") -->  [ ]
 */
 var characterFrequency = function (string) {
-debugger;
-var  ResultArr;
- ResultArr  = string.slice().split('').map(function (element, index, array) {
-		var counter  = 1;
-		for (var i = 0; i < array.length; i++) {
-			if (element === array[i]) {
-				array.splice(i,1);
-				counter++;
-			}	
-		}
-			if(array.length===1) {return [array[0], 1]} 
-		array.splice(0,1);
+for (var i = 0; i < string.length; i++) {
+	for (var i = 0; i < .length; i++) {
+		[i]
 	
-		return [element, counter]
-	});
-return ResultArr.forEach(function (val, index) {
-//bubble sort
-});
+	string[i]
+	}
 }
-characterFrequency("aaabbc");
