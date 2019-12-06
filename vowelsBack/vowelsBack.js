@@ -59,6 +59,7 @@ function vowelsBack(string, result = "") {
     }
     //function that takes a letter and change it folowing the rules
     function giveBackLetter(letter, object) {
+
         var nextLetter = string.charCodeAt(letter) + object[letter];
         if (!specialCases[String.fromCharCode(checkIndex(nextLetter))]) {
             result += String.fromCharCode(checkIndex(nextLetter));
