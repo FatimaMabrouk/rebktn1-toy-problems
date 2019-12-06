@@ -20,7 +20,7 @@ function vowelBack(str) {
 	excepRes = ["c", "o", "d", "e"];
 	vowelLetter = ['a', 'i', 'u'];
 	arr[0] = undefined;
-	for (var i = 1; i < str.length; i++) {
+	for (var i = 0; i < str.length; i++) {
 		// var changed = false;
 		var arrIndex = arr.indexOf(str[i])
 		if(arrIndex - 5 <= 0){
@@ -40,12 +40,20 @@ function vowelBack(str) {
 			}
 			// changed = true;
 		}else if(vowelLetter.indexOf(str[i]) != -1) {
-			if(exceptionValVowel) {
-				str[i] = arr[arrIndex - 5];
+			if(exceptionValVowel === -1) {
+				if(arrIndex - 5 <=0){
+					str[i] = arr[arrIndex - 5 + 26]
+				}else {
+					str[i] = arr[arrIndex - 5];
+				}
 			}
 		}else {
-			if(exceptionValCons != -1){
-				str[i] = arr[arrIndex + 9]
+			if(exceptionValCons === -1){
+				if (arrIndex + 9 > 26) {
+					str[i] = arr[arrIndex + 9 - 26]
+				}else{
+					str[i] = arr[arrIndex + 9]
+				}
 			}
 		}
 	}
