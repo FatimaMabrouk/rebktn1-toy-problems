@@ -22,7 +22,7 @@ for (let i = 0; i < str.length; i++) {
 	switch(currentLetter){
 
 		case 'a':
-		case 'e':
+		// case 'e':
 		case 'i':
 		// case 'o': o is a Exception so it wont revert back 5 places
 		case 'u':
@@ -59,9 +59,16 @@ for (let i = 0; i < str.length; i++) {
 		}
 	}
 
-
-	if(currentLetter === 'c' || currentLetter === 'o' || currentLetter === 'd' || currentLetter === 'e')
-		currentLetter = str[i];
+    switch(currentLetter){
+    	case 'c':
+    	case 'o':
+    	case 'd':
+    	case 'e':
+    	currentLetter = str[i];
+    	break;
+    }
+	
+		
 
 
 	resStr += currentLetter;
