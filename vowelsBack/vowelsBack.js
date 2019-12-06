@@ -61,7 +61,3 @@ function vowelBack(str) {
 
 }
 
-// Test.describe("Example tests",_=>{
-// Test.assertSimilar(vowelBack("testcase"), "tabtbvba");
-// Test.assertSimilar(vowelBack("codewars"), "bnaafvab");
-// Test.assertSimilar(vowelBack("exampletesthere"), "agvvyuatabtqaaa");
