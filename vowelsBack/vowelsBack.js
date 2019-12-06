@@ -2,7 +2,8 @@
 
 // Move consonants forward 9 places through the alphabet. If they pass 'z', start again at 'a'.
 
-// Move vowels back 5 places through the alphabet. If they pass 'a', start again at 'z'. For our Polish friends this kata does not count 'y' as a vowel.
+// Move vowels back 5 places through the alphabet. If they pass 'a', start again at 'z'. 
+//For our Polish friends this kata does not count 'y' as a vowel.
 
 // Exceptions:
 
@@ -11,3 +12,11 @@
 // If a moved letter becomes 'c', 'o', 'd' or 'e', revert it back to it's original value.
 
 // Provided string will always be lower case, won't be empty and will have no special characters.
+
+function vowels(string){
+	var reg = /[!@#$%^&*(),.?":{}|<> ]/g
+	var tab = string.split(reg)	
+	var newstring.replace(reg,''))
+	//console.log(string)
+	return tab
+}
