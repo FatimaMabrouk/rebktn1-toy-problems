@@ -17,8 +17,7 @@ function vowelsBack(string, result = "") {
     const vowels = {
         a: -5,
         i: -5,
-        u: -5,
-        y: -5
+        u: -5
     };
     const specialCases = {
         c: -1,
