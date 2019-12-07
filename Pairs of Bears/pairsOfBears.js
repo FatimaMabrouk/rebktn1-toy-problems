@@ -20,3 +20,22 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+function matingPairs(x, s){
+    var c = 'B';
+    var n =  8
+	var str = '';
+	var count  = 0;
+	var isFalse = false;
+	var arr = []; 
+	for (var i = 0; i < s.length; i++) {
+
+		if(c === s[i] && n == s[i+1] || n == s[i] && c === s[i+1]){
+            str += s[i]+s[i+1];
+            count ++;
+            if(count >= x)
+              isFalse = true;
+		}
+	}
+    arr.push(str,isFalse);
+	return arr;
+}

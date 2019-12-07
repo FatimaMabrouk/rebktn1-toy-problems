@@ -34,11 +34,7 @@ function dec2FactString(nb){
 }
 
 function factString2Dec(str){
-	var result = 0; 
-	
-		result= dec2FactString(parseInt(str))
-	
-	return result;
+	var result = ''
 }
 //-------------------------------------------------------------------------//
 // sorry but i didn't understand the question i didn't understatnd thid part at all (decimal number 463 is coded as "341010" ) //
