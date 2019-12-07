@@ -26,6 +26,7 @@ function vowels(string){
 			break;
 			case 'a' :
 			case 'i' :
+			case 'w' :
 			case 'u' :
 			case 'y' : {
 				var diff = alphabet.indexOf(string[i]) - 5;
