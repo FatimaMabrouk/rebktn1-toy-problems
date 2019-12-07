@@ -20,3 +20,29 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+//first solution
+function bearsPair(x, str) {
+	var skipNext = false;
+	var result = '';
+	for (var i = 0; i < str.length; i++) {
+		if(str[i] === 'B' && !skipNext){
+			if(str[i + 1] === '8'){
+				result += str[i] + str[i + 1];
+				skipNext = true;
+			}
+		}if else(str[i] === '8' && !skipNext) {
+			if(str[i + 1] === 'B') {
+				result += str[i] + str[i + 1];
+				skipNext = true;
+			}
+		}else skipNext = false;
+	}
+	return [result, result.length / 2 == x? true: false]
+}
+
+//second solution
+function bearsPair(x, str) {
+	var result = ''	
+	str.replace(/[B8][8B]/g, (a) => result += a)
+	return [result, result.length / 2 === x? true: false]
+}
