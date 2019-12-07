@@ -15,28 +15,28 @@ function vowelback(alphabetStr) {
 	var alphabet = 'abcdefghijkelmopqrstuvwxyz'
 	var copyStr = alphabetStr.slice().split('');
 
-	if (copyStr !== 'code') {
+	// if (copyStr !== 'code') {
 		copyStr.forEach(( elem, index, array) =>{
 			switch(elem) {
 
 				case 'a': 
-				array[index] = alphabet[alphabet.indexOf('z') - 5]
+				array[index] = alphabet[alphabet.indexOf('z') - 4]
 				break;
 
 				case 'u':
-				array[index] = alphabet[alphabet.indexOf('u') - 5]
+				array[index] = alphabet[alphabet.indexOf('u') - 4]
 				break;
 
 
 				case 'i': 
-				array[index] = alphabet[alphabet.indexOf('i') - 5]
+				array[index] = alphabet[alphabet.indexOf('i') - 4]
 				break;
 
 				case 'z': 
-				array[index] = alphabet[alphabet.indexOf('a') + 9]
+				array[index] = alphabet[alphabet.indexOf('a') + 8]
 				break;
 
-				case 'c': 
+				case 'c' || 'o': 
 				array[index] = alphabet[alphabet.indexOf('c') - 1]
 				break;
 
@@ -44,18 +44,18 @@ function vowelback(alphabetStr) {
 				array[index] = alphabet[alphabet.indexOf('o') - 1]
 				break;
 
-					case 'd': 
-				array[index] = alphabet[alphabet.indexOf('d') - 3]
+				case 'd': 
+				array[index] = alphabet[alphabet.indexOf('d') - 2]
 				
 				break;
 			
 				case 'e': 
-				array[index] = alphabet[alphabet.indexOf('e') - 4]
+				array[index] = alphabet[alphabet.indexOf('e') - 3]
 				break;
 				default:
-				array[index] = alphabet[alphabet.indexOf(elem) - 3]
-			}
-		})
-	}
+				array[index] = alphabet[alphabet.indexOf(elem) + 8]
+			// }
+		}
+	})
 	return copyStr.join('');
 }
