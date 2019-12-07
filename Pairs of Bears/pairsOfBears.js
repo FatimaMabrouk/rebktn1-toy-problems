@@ -21,7 +21,7 @@ x will always be a positive integer, and s will never be empty
 
 
 */
-function checkPairBears(number, string) {
+function checkPairBears(numOfPairs, string) {
 	var cpyStr = string.slice();
 	var arr = [];
 	for (var i = 0; i < cpyStr.length; i++) {
@@ -29,6 +29,5 @@ function checkPairBears(number, string) {
 			arr.push(cpyStr[i],cpyStr[i+1]);
 	  }
   }
-	return [arr.join(','),(number === Math.floor(arr/2))];
-}
-checkPairBears(0,'EvHB8KN8ik8BiyxfeyKBmiCMj')
+	return [arr.join(','),(numOfPairs === Math.floor(arr/2))];
+};
