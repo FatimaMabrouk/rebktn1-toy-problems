@@ -20,3 +20,17 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+
+function pairsOfBears(x, s, i = 0, counter = 0, result = false){
+    if(i === s.length - 1) return result;
+    if(s[i] === 'B' && s[i+1] === '8'){
+        counter++;
+        i += 2;
+    } else if(s[i] === '8' && s[i+1] === 'B'){
+        counter++;
+        i += 2;
+    } else {
+        i++;
+    }
+    return pairsOfBears(x, s, i, counter, counter >= x);
+}
