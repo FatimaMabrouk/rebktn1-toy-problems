@@ -32,6 +32,9 @@ function pairsOfBears(number, string) {
 		if ( (string[i] === 'B' && string[i + 1] === '8') || (string[i] === '8' && string[i + 1] === 'B') ) {
 			str += string[i] + string[i + 1];
 		}
+		if (string[i + 2] === 'B' || string[i + 2] === '8' ) {
+			i++;
+		}
 	}
 	if (str.length === 0) {
 		return str;
