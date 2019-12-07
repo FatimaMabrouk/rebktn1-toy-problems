@@ -20,3 +20,28 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+
+var pairsBears = function(nb, str) {
+	var count = 0;
+	var result = '';
+	var array = str.split('')
+	if(str.indexOf('B8B') >= 0 && str.indexOf('B8B') !== str.indexOf('B8B8')) {
+		if(array.splice(str.indexOf('B8B')-1, 4) !== '8B8B') {
+
+		console.log()
+			array.splice(str.indexOf('B8B'), 3)	
+		}
+		
+	}
+	
+	for(var i = 0; i < array.length; i++) {
+		if(array[i] + array[i + 1] === 'B8' || array[i] + array[i + 1] === '8B' ) {
+			count +=1;
+			result += array[i] + array[i + 1];
+		}
+	}
+	if(nb) {
+		return [nb <= count, result]
+	}
+	return [count, result]
+}
