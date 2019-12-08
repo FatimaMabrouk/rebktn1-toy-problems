@@ -28,9 +28,7 @@
  	while(value !== 0){
  	i++;
  	result = value % i;
- 	console.log(result)
     value  = Math.floor(value / i);
-    console.log(value)
 
      arr.push(result)
  	}
@@ -45,9 +43,10 @@
    	result = Number (strr[i]) * factorial(i);
    
     	arr.push(result);
-    	console.log(arr);
+   
 
     }
+    
    return sum(arr)	     
   }
  

@@ -20,3 +20,20 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+function matingBears(x, s){
+	var str = '';
+	var flag = false;
+    var count = 0;
+    for(var i = 0; i < s.length; i++){
+    if(s[i] === 'B' && s[i + 1] === '8' || s[i] === '8' && s[i + 1] === 'B'){
+	   count++
+       str += s[i] + s[i + 1];
+       i++
+    }
+      if(count >= x){
+      	flag = true;
+      }
+  
+    }
+ return [flag, str];
+}
