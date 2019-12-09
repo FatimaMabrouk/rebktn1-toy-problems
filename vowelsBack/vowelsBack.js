@@ -21,19 +21,16 @@ function vowlesBack(str){
  	if(str[i] === 'c' || str[i] === 'o'){
  	  var character = alphabets.indexOf(str[i]) - 1;
  	  string += alphabets[character];
- 	  console.log(string)
  	}
  	else
  	 if(str[i] === 'e'){
  	    var character = alphabets.indexOf(str[i]) - 3;
  	    string += alphabets[character];
- 	    console.log(string)
  	}
  	else 
  		if(str[i] === 'd'){
  	    var character = alphabets.indexOf(str[i]) - 4;
  	    string += alphabets[character];
- 	    console.log(string)
  	}
 
    else 
@@ -48,8 +45,7 @@ function vowlesBack(str){
   	} else {
   		string += alphabets[character];
   	}
-  	console.log(string)
-  }
+  	  }
    if(vowels.includes(str[i]) && str[i] !== 'o'){
   	var vowle = alphabets.indexOf(str[i]);
   	vowle -= 5;

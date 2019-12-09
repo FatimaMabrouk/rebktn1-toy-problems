@@ -35,5 +35,5 @@ function matingBears(x, s){
       }
   
     }
- return [flag, str];
+ return [str, flag];
 }
