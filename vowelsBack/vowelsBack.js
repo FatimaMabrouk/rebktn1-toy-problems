@@ -45,6 +45,7 @@ function vowelsBack(string, result = "") {
         x: +9,
         y: +9,
         z: +9
+
     }
     //function that check if the sacii code is more than 122 or less than 97 
     function checkIndex(number) {
