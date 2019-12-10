@@ -36,7 +36,16 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+
+  var iterateTree = (node, result = []) => {
+    if(filter(node.value)) result.push(node.value);
+    for(var i in node.children)    return iterateTree(node.children[i], result);
+  }
+  return iterateTree(this)
+
+
 };
+
 
 
 
