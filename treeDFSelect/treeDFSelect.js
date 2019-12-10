@@ -30,12 +30,36 @@
  * Basic tree that stores a value.
  */
 
-var Tree = function(value) {
+	var Tree = function(value) {
   this.value = value;
   this.children = [];
 };
 
 Tree.prototype.DFSelect = function(filter) {
+
+	// //empty array to stor the values;
+	// var array = [];
+	// array.push(this.value);
+
+	// //traversing the tree for values
+	// var rec = function findsValues( arr ) {
+	// 	if(arr.length === 0) return;
+
+	// 	for( var i = 0; i < arr.length; i++ ) {
+	// 		console.log(arr[i].value)
+	// 		array.push(arr[i].value);
+			
+
+
+
+	// 		return rec(arr[i].children);
+	// 	}
+	// }
+	// rec(this.children);
+
+	// return array.map(function(element) {
+	// 	return filter(element);
+	// });
 };
 
 
@@ -93,3 +117,6 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+
+ //# sourceURL=snippet:///Script%20snippet%20%2311
