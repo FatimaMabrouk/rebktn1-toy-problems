@@ -36,6 +36,20 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+	 var result = [];
+
+  var search = function(node, depth) {
+
+      if (filter(node.value, depth)){
+        result.push(node.value)
+      }
+       
+      for (var i = 0; i < node.children.length; i++){
+        search(node.children[i], depth + 1);
+      }
+  }
+  search(this, 0);
+  return result;
 };
 
 
@@ -93,3 +107,4 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
