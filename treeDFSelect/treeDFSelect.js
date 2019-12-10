@@ -35,7 +35,22 @@ var Tree = function(value) {
   this.children = [];
 };
 
-Tree.prototype.DFSelect = function(filter) {
+Tree.prototype.DFSelect = function(filter, result = [], depth = 0) {
+    
+    if(filter(this.value, depth) && depth === 0) result.push(this.value);
+    if(filter(this.value, depth) && depth !== 0) return true;
+    if(!filter(this.value, depth) && depth !== 0) return false;
+
+    depth++;
+
+    for(var i = 0; i < this.children.length; i++){
+      if(this.children[i].DFSelect(filter, result, depth)){
+        result.push(this.children[i].value);
+      }
+      this.children[i].DFSelect(filter, result, depth)
+    }
+    
+    return result;
 };
 
 
