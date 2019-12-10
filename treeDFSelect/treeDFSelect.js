@@ -36,6 +36,25 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  debugger;
+  //set an array 
+  var array = arguments[1] || [] ;
+  // set a depth counter
+  var depth = arguments[2] || 0;
+  //if there is no more values, 
+  if (!this.value) {
+    //callback Filter callback through node value
+   filter(this.value,depth);
+   return array;
+  }
+  //iterate over the nodes
+  for (var i = 0; i < this.children.length; i++) {
+    //push to the array
+    array.push(this.children[i].value)
+    //
+    //recurively call the funtion , increase the counter by 1
+    this.children[i].DFSelect( filter, array, depth+1 )
+  }
 };
 
 
@@ -93,3 +112,12 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+  var root1 = new Tree(1);
+  var branch2 = root1.addChild(2);
+  var branch3 = root1.addChild(3);
+  var leaf4 = branch2.addChild(4);
+  var leaf5 = branch2.addChild(5);
+  var leaf6 = branch3.addChild(6);
+  var leaf7 = branch3.addChild(7);
+ root1.DFSelect();
