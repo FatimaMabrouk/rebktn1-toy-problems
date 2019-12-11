@@ -36,4 +36,72 @@ Note: The merging process must start from the root nodes of both trees.
  * @param {TreeNode} t2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {};
+
+
+function TreeNode(value){
+	this.value = value;
+	this.right = null;
+	this.left = null;
+}
+
+TreeNode.prototype.add = function(value){
+	if(value > this.value){
+		if(!this.right){
+			this.right = new TreeNode(value);
+		} else {
+			this.right.add(value)
+		}
+	} else {
+		if(!this.left){
+			this.left = new TreeNode(value);
+		} else {
+			this.left.add(value)
+		}	
+	}
+}
+
+
+var mergeTrees = function(t1, t2, result = new TreeNode(t1.value + t2.value)) {
+	if(t1 && t1.right && !t2){
+		result.right = new TreeNode(t1.right.value);
+		mergeTrees(t1.right, null, result.right);
+	}
+	if(t1 && t1.right && t2 && !t2.right){
+		result.right = new TreeNode(t1.right.value);
+		mergeTrees(t1.right, null, result.right);
+	}
+	if(t2 && t2.right && !t1){
+		result.right = new TreeNode(t2.right.value);
+		mergeTrees(t1.right, null, result.right);
+	}
+	if(t2 && t2.right && t1 && !t1.right){
+		result.right = new TreeNode(t2.right.value);
+		mergeTrees(t1.right, null, result.right);
+	}
+	if(t2 && t2.right && t1 && t1.right){
+		result.right = new TreeNode(t1.right.value + t2.right.value);
+		mergeTrees(t1.right, t2.right, result.right);
+	}
+
+	if(t1 && t1.left && !t2){
+		result.left = new TreeNode(t1.left.value);
+		mergeTrees(t1.left, null, result.left);
+	}
+	if(t1 && t1.left && t2 && !t2.left){
+		result.left = new TreeNode(t1.left.value);
+		mergeTrees(t1.left, null, result.left);
+	}
+	if(t2 && t2.left && !t1){
+		result.left = new TreeNode(t2.left.value);
+		mergeTrees(null, t2.left, result.left);
+	}
+	if(t2 && t2.left && t1 && !t1.left){
+		result.left = new TreeNode(t2.left.value);
+		mergeTrees(null, t2.left, result.left);
+	}
+	if(t2 && t1 && t2.left && t1.left){
+		result.left = new TreeNode(t1.left.value + t2.left.value);
+		mergeTrees(t1.left, t2.left, result.left);
+	}
+	return result;
+};
