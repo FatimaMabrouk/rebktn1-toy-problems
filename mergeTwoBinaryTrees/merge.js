@@ -24,16 +24,50 @@ Merged tree:
 Note: The merging process must start from the root nodes of both trees.
 */
 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
+
+ // Definition for a binary tree node.
+ function TreeNode(val) {
+ 	  var obj = {};
+      obj.val = val;
+      obj.left = obj.right = null;
+
+      return obj;
+  }
+ 
 /**
  * @param {TreeNode} t1
  * @param {TreeNode} t2
  * @return {TreeNode}
- */
-var mergeTrees = function(t1, t2) {};
+ */var merg = {} ;
+var mergeTrees = function(t1, t2) {
+
+	if((t1.left && t1.right === null) && (t2.left && t2.right === null)){
+      return merg = TreeNode(t1.val + t2.val);
+	}
+     if(t1.left !== null && t2.left !== null){
+     	merg.left = TreeNode(t1.val + t2.val)
+     }
+     if(t1.right !== null && t2.right !== null){
+     	merg.rigt = TreeNode(t1.val + t2.val)
+     }
+     if(t1.left == null && t2.left !== null || t1.left !== null && t2.left == null){
+     	var result = t1.left;
+     	if(t2.left !== null)
+     		result = t2.left;
+     	merg.left = TreeNode(result.val)
+     }
+     if(t1.right == null && t2.right !== null || t1.right !== null && t2.right == null){
+     	var result = t1.right;
+     	if(t2.right !== null)
+     		result = t2.right;
+     	merg.right = TreeNode(result.val)
+     }
+     if(t1.left.val !== null || t2.left.val !== null){
+     	mergeTrees(t1.left, t2.left)
+     }
+      if(t1.right.val !== null || t2.right.val !== null){
+     	mergeTrees(t1.right, t2.right)
+     }
+   
+    return merg;
+};
