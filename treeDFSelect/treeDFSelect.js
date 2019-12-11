@@ -36,6 +36,7 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  var
 };
 
 
