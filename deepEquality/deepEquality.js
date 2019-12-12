@@ -12,4 +12,29 @@
   *
   */
 var deepEquals = function(apple, orange) {
+    var result = true;
+	for (var key in apple) {
+
+		if(typeof apple[key] === 'object' && typeof orange[key] === 'object'){
+
+			for (var key1 in apple[key]){
+				if(apple[key][key1] === orange[key][key1]){
+					result *=  true;
+				}
+			    else{
+                    return false;
+			    }
+			} 
+		}
+
+		else if(apple[key] === orange[key]){
+           result *=  true;
+		}
+
+		else{
+			return false;
+		}
+	}
+	return result;
 };
+deepEquals({a:1, b: {c:3}},{a:1, b: {c:3}})
