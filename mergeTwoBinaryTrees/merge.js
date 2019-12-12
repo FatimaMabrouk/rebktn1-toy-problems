@@ -36,4 +36,19 @@ Note: The merging process must start from the root nodes of both trees.
  * @param {TreeNode} t2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {};
+var convertTreeToArray = function(t, result = [], count = 0) {
+
+	result.push(t.val)
+	if(t.left){
+		convertTreeToArray(t.left, result);
+	}
+	if(t.right){
+		convertTreeToArray(t.right, result);
+	}
+	return result;
+}
+
+var mergeTrees = function(t1, t2) {
+	const set = new Set([...convertTreeToArray(t1),...convertTreeToArray(t2)]);
+
+};
