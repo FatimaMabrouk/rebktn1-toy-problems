@@ -11,5 +11,19 @@
   * don't worry about handling cyclical object structures.
   *
   */
-var deepEquals = function(apple, orange) {
+var deepEquals = function (apple, orange) {
+  //loop over the objects
+  for (let key in apple) {
+    //check if the current element is an object or array
+    if (typeof apple[key] === "object") {
+      //use recursion to call the function again 
+      if (!deepEquals(apple[key], orange[key])) return false;
+    } else {
+      //if the two elements are different return true
+      if (apple[key] !== orange[key]) {
+        return false;
+      }
+    }
+  }
+  return true;
 };
