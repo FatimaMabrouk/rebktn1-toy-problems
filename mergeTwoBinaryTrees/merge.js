@@ -35,15 +35,8 @@ Note: The merging process must start from the root nodes of both trees.
   // @return {TreeNode}
  
 var mergeTrees = function(t1, t2) {
-	//new child for the recursive function 
-	// 
-	//if we dont have value return / basecase
-
-	//if we have node on the left 
-		// recursively check it 
-		//add to new merge(t1.left.value +t2.left.valu )
-
-	//if we have node on the right 
-		// recursively check it	
-		//add to new merge(t1.right.value +t2.right.valu )
+	return (!t1) && t2
+	return (!t2) && t1
+	
+	 
 	}
