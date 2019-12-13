@@ -9,4 +9,12 @@ parseQueryString("http://example.com?msg=hello%20world") // [ [ "msg", "hello wo
 parseQueryString("http://example.com") // undefined
 */
 
-function parseQueryString(url) {}
+function parseQueryString(url) {
+    if(url.indexOf('?') === -1) return undefined;
+    var newUrl = url.substr(url.indexOf('?') + 1, url.length-1);
+    var queries = newUrl.split('&');
+    return queries.map(query => {
+        query = query.replace(/%20/g, ' ');
+        return query.split('=');
+    });
+}
