@@ -12,16 +12,23 @@
   *
   */
 var deepEquals = function(object1, object2) {
-  debugger;
-var obj1keyArr = Object.keys(object1)
-function deepEqualsHelper(object1, object2) {
-  // body...
-}
-
-
+  // stop condtion is done w/ for loop
+    //iterate
+    for (var key in object1) {
+      if (typeof(object1[key]) ==='object' ||typeof(object2[key]) ==='object') {
+      returne  deepEquals(object1[key], object2[key]);
+      }
+    }
+    if (object1[key] !== object2[key]) {
+      return false;
+    }
+    return true;
 };
 
 
+    // if ( deepEquals() ) {
+    //   return true;
+    // }
 
 //===
 //declare a state variable
