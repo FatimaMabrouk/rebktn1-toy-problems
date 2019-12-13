@@ -9,4 +9,10 @@ parseQueryString("http://example.com?msg=hello%20world") // [ [ "msg", "hello wo
 parseQueryString("http://example.com") // undefined
 */
 
-function parseQueryString(url) {}
+function parseQueryString(url) {
+  var result = [];
+  if(url[url.length - 1] === 'm') return undefined;
+  var str = url.split(/com/)[1];
+  str = decodeURIComponent(str);
+  result.push([str.match(/[^?]\w[^=]/)[0]]);
+}
