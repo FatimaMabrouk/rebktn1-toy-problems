@@ -11,14 +11,15 @@ parseQueryString("http://example.com") // undefined
 
 function parseQueryString(url) {
     const urlArray = decodeURIComponent(url).split(/[?&]/);
-    console.log(urlArray)
     if (urlArray.length === 1) return undefined
 
     let result = [];
     for (let i = 1; i < urlArray.length; i++) {
         arr = urlArray[i].split('=');
         result.push(arr)
-        console.log(result, arr)
     }
+    console.log(result)
     return result
 }
+parseQueryString("http://example.com?msg=hello%20world")
+parseQueryString("http://example.com?a=hello&b=99")
