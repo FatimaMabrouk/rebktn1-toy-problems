@@ -11,5 +11,25 @@
   * don't worry about handling cyclical object structures.
   *
   */
-var deepEquals = function(apple, orange) {
-};
+var deepEquals = function (apple, orange) {
+
+  var tab1 = ObjToTable(apple)
+  var tab2 = ObjToTable(orange)
+  var i = 0
+ // console.log(tab1[0],tab2[0])
+  
+  function check(tab1, tab2) {
+
+  }
+  check(apple,orange)
+}
+
+
+function ObjToTable(obj) {
+  var result = []
+  for (key in obj) {
+    result.push([key, obj[key]]) 
+  }
+  return result 
+}
+//check each element 
