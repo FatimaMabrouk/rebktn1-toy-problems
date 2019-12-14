@@ -17,11 +17,15 @@ function largestProductOfThree(array) {
 	array.sort();
 	
 	if(array.length < 3){
-		
 		return 'array have less than 3 elements';
 	}
+    else if(array.length === 3)
+    	var i = 0;
+    else{
+    	var i = 1
+    }
 
-	for (var i = 1; i < array.length; i++) {
+	for ( i ; i < array.length; i++) {
 		
 		largest*=array[i] ;
 	}
