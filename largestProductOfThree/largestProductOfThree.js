@@ -7,4 +7,9 @@ largestProductOfThree([ 0, 2, 3 ]) //	0
 largestProductOfThree([1, 4, -5, -2]) // 40
 */
 
-function largestProductOfThree(array) {}
+function largestProductOfThree(arrayOfNumber) {
+  return  arrayOfNumber.map( (element, index, arr) => {return Math.abs(element)})
+  .sort()
+  .slice(array.length - 3, array.length)
+  .reduce((acc,currentValue) => {return acc * currentValue} )
+}
