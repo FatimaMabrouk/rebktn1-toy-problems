@@ -14,21 +14,17 @@ function largestProductOfThree(array) {
 		array[i] = Math.abs(array[i]);
 	}
 
-	array.sort();
+	  array.sort(function(a, b) {
+        return b - a;
+    });
 	
 	if(array.length < 3){
 		return 'array have less than 3 elements';
 	}
-    else if(array.length === 3)
-    	var i = 0;
-    else{
-    	var i = 1
-    }
 
-	for ( i ; i < array.length; i++) {
-		
+	for ( var i = 0 ; i < 3; i++) {
 		largest*=array[i] ;
-	}
+    }
 	return largest;
 }
-largestProductOfThree([1, 4, -5, -2])
+largestProductOfThree([1, 4, 5, 7, 9, 0, 1])
