@@ -20,5 +20,4 @@ function parseQueryString(url) {
 	//console.log(qArr)
 	qArr.forEach((elem)=>{result.push(elem.split("="))})
 	return result;
-
 }
