@@ -31,39 +31,11 @@ Note: The merging process must start from the root nodes of both trees.
       this.left = this.right = null;
   }
  
-/**
- * @param {TreeNode} t1
- * @param {TreeNode} t2
- * @return {TreeNode}
- */
-TreeNode.prototype.mergeTrees = function(t1 = new TreeNode(val) , t2 = new TreeNode(val)) {
-	    var t3 = new TreeNode(val);
+    var mergeTrees = function(t1, t2) {
+        var t3 = new TreeNode()
 
-        if(t1.val !== null && t2.val !== null){
-             t3.val = t1.val + t2.val;
-        }
-      while(t1.left !== null && t2.left !== null && t1.right !==null && t2.right !== null){
-        if(t1.left !== null && t2.left !== null){
-        	t3.left = t1.left + t2.left;
-        }
-        if(t1.left !== null && t2.left === null){
-        	t3.left = t1.left;
-        }
-        if(t1.left === null && t2.left !==null){
-        	t3.left = t2.left;
-        }
-        if(t1.right !== null && t2.right !== right){
-        	t3.right = t1.right + t2.right;
-        }
-        if(t1.right === null && t2.right !== null){
-        	t3.right = t2.right;
-        }
-        if(t1.right !== null && t2.right === null){
-        	t3.right = t1.right;
-        }
+        if(!t1 && !t2){
+          return null;
+        }  
+        if(t ===)
     }
-
-     return t3;
-   
-  
-};
