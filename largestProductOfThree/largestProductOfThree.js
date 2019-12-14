@@ -8,9 +8,17 @@ largestProductOfThree([1, 4, -5, -2]) // 40
 */
 
 function largestProductOfThree(array) {
-       var result = 1;
-	for(var i = 0; i < array.length; i++){
-        result *= array[i];
-	}
-	return result;
+      
+       var arr = array.sort(function(a, b){return a-b});
+       return  multiply(arr.slice(Math.max(arr.length - 3, 1)))
+	
+}
+
+
+function multiply (array) {
+    var sum=1;
+    for (var i=0; i<array.length; i++) {
+        sum = sum * array[i];
+    } 
+    return sum;
 }
