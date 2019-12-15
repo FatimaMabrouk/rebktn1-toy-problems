@@ -9,6 +9,7 @@ largestProductOfThree([ 0, 2, 3 ]) //	0
 largestProductOfThree([1, 4, -5, -2]) // 40
 */
 
+
 ////////////////////////////////////////////////////////////////////
 function largestProductOfThree(array) {
 
@@ -22,40 +23,44 @@ function largestProductOfThree(array) {
 	for( var i = 0; i < array.length; i++ ) {
 
 		var neg = 0;
-		if(result[i] < 0) {
+		if(array[i] < 0) {
 			count++;
-			neg = result[i] * -1;
-			result[i].push([neg,'neg']); // [ [5,'neg'] ]
+			neg = array[i] * -1;
+			result.push([neg,'neg']); // [ [5,'neg'] ]
 		}
-		else if(arra[i] >= 0) {
-			neg = result[i];
-			result[i].push([neg,'pos']); 
+		else if(array[i] >= 0) {
+			neg = array[i];
+			result.push([neg,'pos']); 
 		}
 
 	}
 
 	result.sort(function(a,b){return b[0]-a[0]});
-
-
+	// console.log(result)
+	// console.log(result[0][1])
 	//recursive fnct;
 	var negCount = 0;
-	var rec = function(array) {
+    debugger;
+	var rec = function(arr) {
 
-			if(array[0][1] === 'neg') {
-				negCount++
+		if( !arr[0] ) return;
+		// console.log(arr)
+			var check = arr[0];
+			// console.log(check[1])
+			if( check[1] == "neg" ) {
+				negCount++;
 			};
+
 			if(negCount === 3) {
-				return rec(result.splice(1))
-			};
-			else{
-				product = product * array[0][0];
-				return rec(result.splice(1));
+				return rec(arr.splice(1))
+			} else{
+				product = product * arr[0][0];
+				return rec(arr.splice(1));
 			}
 		}
-
-
 	rec(result);
-
 		return product;
-	
 	}
+
+
+	largestProductOfThree([1, 4, -5, -2])
