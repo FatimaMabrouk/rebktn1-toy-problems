@@ -33,8 +33,22 @@
 
 'use strict';
 
-var compose = function() {
+var compose = function () {
+    var argument = arguments;
+    return function (val) {
+        for (var i = argument.length - 1; i >= 0; i--) {
+            var value = argument[i](value || val)
+        }
+        return value
+    }
 };
 
-var pipe = function() {
+var pipe = function () {
+    var argument = arguments;
+    return function (number) {
+        for (var i = 0; i < argument.length; i++) {
+            var value = argument[i](value || number)
+        }
+        return value
+    }
 };
