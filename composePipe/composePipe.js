@@ -33,8 +33,20 @@
 
 'use strict';
 
-var compose = function() {
+let compose = (...rest) => {
+    return (arg) => {
+        for(var i = rest.length - 1; i >=0; i--){
+            arg = rest[i](arg);
+        }
+        return arg;
+    }
 };
 
-var pipe = function() {
+let pipe = (...rest) => {
+    return (arg) => {
+        rest.forEach((func) => {
+            arg = func(arg);
+        });
+        return arg;
+    }
 };
