@@ -40,7 +40,6 @@ var compose = function() {
     //     endReturn =   arguments[i](endReturn) ;
     // }
     // endReturn;
-    compose._chain()   
 };
 
 var pipe = function() {

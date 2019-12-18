@@ -33,12 +33,24 @@
 var Tree = function(value) {
   this.value = value;
   this.children = [];
+  this.discovered = false;
 };
 
 
 
-Tree.prototype.BFSelect = function(filter) {
-  // return an array of values for which the function filter(value, depth) returns true
+Tree.prototype.BFSelect = function(filter, array = [], depth = 0) {
+  // declare a new queue 
+
+    // push(root)
+    //while(queue is not empty)
+    //if not discovered
+      // label it as discovered
+  // iterate in children aray
+    // push all nodes to  queue
+  // dequeue one node at time
+    //if filter is satisfied
+      //push to array
+  return array
 };
 
 /**
