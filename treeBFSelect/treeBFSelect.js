@@ -36,11 +36,24 @@ var Tree = function(value) {
 };
 
 
-
+//////////////////// logicaly work ////////////////////////////////
 Tree.prototype.BFSelect = function(filter) {
+	var arr = [];
+	var children = this.children
   // return an array of values for which the function filter(value, depth) returns true
-};
+  function anything(value, depth){
 
+  	if(filter(value, depth)){
+       arr.push(value);
+  	}
+  	for (var i = 0; i < children.length; i++) {
+  		children[i].anything(children[i].value, depth+1)
+  	}
+  }
+  anything(this.value, 0)
+  return arr;
+};
+//////////////////// logicaly work ///////////////////////////////////////////////////
 /**
  * You shouldn't need to change anything below here, but feel free to look.
   */
