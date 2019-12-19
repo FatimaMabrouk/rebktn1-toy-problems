@@ -39,16 +39,42 @@
  */
 
 
-var Range = function(start, end, step) {
+var Range = function(start, end, step = 1) {
+    this.start = start;
+    this.end = end;
+    this.step = step;
+    this.storage = [{start: this.start}, {step: this.step}, {end: this.end}];
 };
 
 Range.prototype.size = function () {
+    var size = 0;
+    this.each((element) => ++size);
+    return size;
 };
 
 Range.prototype.each = function (callback) {
+    var start = this.start;
+    var end = this.end;
+    var step = this.step;
+    if(this.start > this.end){
+        [start, end] = [end, start];
+        if(this.step < 0) step = -1 * this.step;
+    }
+    while(start <= end){
+        callback(start);
+        start += step;
+    }
+    if(!this.end){
+        callback(start)
+    }
 };
 
 Range.prototype.includes = function (val) {
+    var included = false;
+    this.each((element) => {
+        if(element === val) included = true;
+    });
+    return included;
 };
 
 var range = new Range(1);
