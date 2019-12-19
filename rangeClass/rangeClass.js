@@ -39,17 +39,41 @@
  */
 
 
-var Range = function(start, end, step) {
+var Range = function (start, end, step) {
+    this.start = start || null;
+    this.end = end || this.start;
+    this.step = step || 1;
 };
 
 Range.prototype.size = function () {
+    if (this.end) {
+        if (this.start > this.end) {
+            [this.end, this.start] = [this.start, this.end]
+        }
+        return Math.round(((this.end - this.start) + 1) / this.step)
+    } else if (this.start) {
+        return 1
+    } else {
+        return 0
+    }
+
 };
 
 Range.prototype.each = function (callback) {
+    for (var i = this.start; i <= this.end; i += this.step) {
+        callback(i)
+    }
 };
 
 Range.prototype.includes = function (val) {
+    for (var i = this.start; i <= this.end; i += this.step) {
+        if (i === val) {
+            return true
+        }
+    }
+    return false
 };
 
-var range = new Range(1);
+var range = new Range(2, 12, 2);
+
 
