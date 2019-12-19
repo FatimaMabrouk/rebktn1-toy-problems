@@ -39,17 +39,35 @@
  */
 
 
-var Range = function(start, end, step) {
-};
 
-Range.prototype.size = function () {
-};
+//es6 constructor
+class Range {
+  constructor(start , end , step = 1 ) {
+    this.map = new Map();
+    this.start = start;
+    this.end = end;
+    this.step = step;
+    if(start <= end) {
+      for(var i = start ; i <= end; i += step) {
+         this.map.set(i);
+      }   
+    } else {
+      for(var i = end ; i >= start; i -= step) {
+         this.map.set(i);
+     }
+    }
+  }
+  size() {
+        return this.map.size();
+  }
+  each(callback) {
+        this.map.forEach(element => {
+          callback(element)
+        });
+  }
+    includes(val){
+        return this.map.has(val);
+  }
+}
 
-Range.prototype.each = function (callback) {
-};
-
-Range.prototype.includes = function (val) {
-};
-
-var range = new Range(1);
 
