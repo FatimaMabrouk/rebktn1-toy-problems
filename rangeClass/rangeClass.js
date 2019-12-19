@@ -39,16 +39,38 @@
  */
 
 
-var Range = function(start, end, step) {
+var Range = function(start, end = start+1, step = 1) {
+	 var range  = [];
+	 var i = start+1;
+
+	 if(start+1 === end+1){
+        i = start;
+	 }
+	 if(step > 1){
+	 	i = start;
+	 	end = end +1; 
+	 }
+
+     for (var i = start; i < end.length; i+=step) {
+     	range.push(i)
+     }
+     return range;
 };
 
 Range.prototype.size = function () {
+	return this.range.length
 };
 
 Range.prototype.each = function (callback) {
+	console.log(callback(4));
 };
 
 Range.prototype.includes = function (val) {
+	for (var i = 0; i < this.range.length; i++) {
+		if(val === this.range[i]){
+			return true;
+		}
+	}
 };
 
 var range = new Range(1);
