@@ -38,18 +38,50 @@
  * evenNumbers.includes(2) should be true, evenNumbers.includes(3) should be false
  */
 
+class Range {
+  constructor(start, end, arr) {
+    this.start = start;
+    this.end = end;
+    this.arr = [];
+  }
+  RangeBetween() {
+    while (this.start < this.end - 1) {
+      this.start++;
+      this.arr.push(this.start);
+    }
+    return this.arr;
+  }
+}
 
-var Range = function(start, end, step) {
+//   var arr = [];
+//   start = 0;
+//   while (start < end - 1) {
+//     start++;
+//     arr.push(start);
+//   }
+//   return arr;
+
+Range.prototype.size = function() {
+  counter = 0;
+  for (var i = 0; i < this.arr.length; i++) {
+    counter++;
+  }
+  return counter;
 };
 
-Range.prototype.size = function () {
+Range.prototype.each = function(callback) {
+    var for (var i = 0; i < this.arr.length, i++){
+        callback(this.arr[i])
+    }
 };
 
-Range.prototype.each = function (callback) {
-};
-
-Range.prototype.includes = function (val) {
+Range.prototype.includes = function(val) {
+    this.arr.each(function(element){
+        if(element){
+            return true;
+        }
+        return false;
+    })
 };
 
 var range = new Range(1);
-
