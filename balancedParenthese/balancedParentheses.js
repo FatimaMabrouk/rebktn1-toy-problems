@@ -8,4 +8,21 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function(str) {
+	var right = '';
+	var left = '';
+	for (var i = 0; i < str.length; i++) {
+
+		if(str[i] ===')'){
+			right+=str[i];
+
+		}else if(str[i] === '('){
+			left +=str[i];
+		}
+	}
+	if(right.length !== left.length){
+		return false;
+	}
+	return true;
+};
+isBalanced("(x + y) - (4)");
