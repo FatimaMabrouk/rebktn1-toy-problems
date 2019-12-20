@@ -20,9 +20,9 @@ var isBalanced = function(str) {
 			left +=str[i];
 		}
 	}
-	if(right.length !== left.length){
+	if(right.length !== left.length || str[0] === ')'){
 		return false;
 	}
 	return true;
 };
-isBalanced("(x + y) - (4)");
+isBalanced(")(50)(")
