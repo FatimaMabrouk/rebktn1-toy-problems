@@ -40,6 +40,7 @@
 
 
 var Range = function(start, end, step) {
+<<<<<<< HEAD
     this.start = start;
     this.end = end;
     this.step = step || 1;
@@ -103,4 +104,18 @@ Range.prototype.includes = function (val) {
 };
 
 var range = new Range(2,15,3);
+=======
+};
+
+Range.prototype.size = function () {
+};
+
+Range.prototype.each = function (callback) {
+};
+
+Range.prototype.includes = function (val) {
+};
+
+var range = new Range(1);
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 

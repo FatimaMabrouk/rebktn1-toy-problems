@@ -38,6 +38,7 @@ var Tree = function(value) {
 
 
 Tree.prototype.BFSelect = function(filter) {
+<<<<<<< HEAD
   var reslut = [];
     function traverse(node, filter){
     //console.log(node.value)
@@ -62,6 +63,10 @@ Tree.prototype.BFSelect = function(filter) {
     
 }
 
+=======
+  // return an array of values for which the function filter(value, depth) returns true
+};
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 
 /**
  * You shouldn't need to change anything below here, but feel free to look.
@@ -116,6 +121,7 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+<<<<<<< HEAD
 
    var root1 = new Tree(1);
    var branch2 = root1.addChild(2);
@@ -133,3 +139,5 @@ Tree.prototype.removeChild = function(child) {
   //   return depth === 1;
   // })
 
+=======
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

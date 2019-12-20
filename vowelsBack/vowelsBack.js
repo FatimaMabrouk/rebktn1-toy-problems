@@ -10,6 +10,7 @@
 
 // If a moved letter becomes 'c', 'o', 'd' or 'e', revert it back to it's original value.
 
+<<<<<<< HEAD
 // Provided string will always be lower case, won't be empty and will have no special characters.
 
 function vowels(string){
@@ -54,3 +55,6 @@ function vowels(string){
 	}
 	return result.join(""); 
 }
+=======
+// Provided string will always be lower case, won't be empty and will have no special characters.
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

@@ -19,6 +19,7 @@ x will always be a positive integer, and s will never be empty
 - regular expression is not allow 
 
 
+<<<<<<< HEAD
 */
 
 
@@ -41,3 +42,6 @@ var pairsBears = function(number, string){
 	return result;
 }
 
+=======
+*/
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

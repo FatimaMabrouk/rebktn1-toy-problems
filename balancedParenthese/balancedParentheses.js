@@ -8,6 +8,7 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
+<<<<<<< HEAD
 var isBalanced = function(str) {
  var openCount = 0;
  var closeCount =0;  
@@ -17,3 +18,6 @@ for(var i = 0; i < str.length; i++ ){
 }
 return openCount === closeCount;
 };
+=======
+var isBalanced = function(str) {};
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

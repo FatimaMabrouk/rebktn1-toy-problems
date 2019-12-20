@@ -20,6 +20,7 @@
 
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
+<<<<<<< HEAD
 // Given numbers will be positive.
 
 var result = '';
@@ -62,3 +63,6 @@ function dec2FactString(nb) {
 		code = code + Math.floor(nb / factorial(number));
 		return code;
 	}
+=======
+// Given numbers will be positive.
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

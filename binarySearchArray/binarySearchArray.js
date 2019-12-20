@@ -11,6 +11,7 @@
  */
 
 var binarySearch = function (array, target) {
+<<<<<<< HEAD
 	// go to the middle and compare the element to the target then go left or go right
 	//re invoke the function on the left or the right
 	var copy = [...array]
@@ -46,4 +47,7 @@ var binarySearch = function (array, target) {
 	return search(array, target)
 }
 
+=======
+};
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 

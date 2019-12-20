@@ -24,6 +24,7 @@ Merged tree:
 Note: The merging process must start from the root nodes of both trees.
 */
 
+<<<<<<< HEAD
 class TreeNode{
 	constructor(val){	
       this.val = val;
@@ -65,3 +66,18 @@ var root2 = new TreeNode(3)
 root2.insert(2)
 root2.insert(7)
 
+=======
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} t1
+ * @param {TreeNode} t2
+ * @return {TreeNode}
+ */
+var mergeTrees = function(t1, t2) {};
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

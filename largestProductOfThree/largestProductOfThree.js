@@ -6,6 +6,7 @@ largestProductOfThree([ 2, 1, 3, 7 ]) // 42
 largestProductOfThree([ 0, 2, 3 ]) //	0
 largestProductOfThree([1, 4, -5, -2]) // 40
 */
+<<<<<<< HEAD
 function largestProductOfThree(array) {
     var products = [];
         // try every combinaison and push it to the products array
@@ -21,3 +22,7 @@ function largestProductOfThree(array) {
     return Math.max(...products)
     }
 
+=======
+
+function largestProductOfThree(array) {}
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

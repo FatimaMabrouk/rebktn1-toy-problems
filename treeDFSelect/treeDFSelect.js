@@ -36,6 +36,7 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+<<<<<<< HEAD
   let result = [];
   let search = function(filter){
     if(this.children === undefined){
@@ -51,6 +52,8 @@ Tree.prototype.DFSelect = function(filter) {
   }
   search(filter, this);
   return result;
+=======
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 };
 
 
@@ -108,6 +111,7 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+<<<<<<< HEAD
 
    var root1 = new Tree(1);
      var branch2 = root1.addChild(2);
@@ -127,3 +131,5 @@ Tree.prototype.removeChild = function(child) {
      // [2, 3]
   
   
+=======
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

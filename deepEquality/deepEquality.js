@@ -12,6 +12,7 @@
   *
   */
 var deepEquals = function(apple, orange) {
+<<<<<<< HEAD
   for(var key in apple){
     for (var keyOrange in orange){
       if(key !== keyOrange){
@@ -30,4 +31,6 @@ var deepEquals = function(apple, orange) {
   }
   return true;
   
+=======
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 };

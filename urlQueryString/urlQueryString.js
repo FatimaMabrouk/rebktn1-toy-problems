@@ -9,6 +9,7 @@ parseQueryString("http://example.com?msg=hello%20world") // [ [ "msg", "hello wo
 parseQueryString("http://example.com") // undefined
 */
 
+<<<<<<< HEAD
 function parseQueryString(url) {
     //stop at the quetion mark
     // take the string and decode It
@@ -21,3 +22,6 @@ function parseQueryString(url) {
 	qArr.forEach((elem)=>{result.push(elem.split("="))})
 	return result;
 }
+=======
+function parseQueryString(url) {}
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86

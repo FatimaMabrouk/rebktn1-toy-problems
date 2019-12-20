@@ -33,11 +33,16 @@
 
 'use strict';
 
+<<<<<<< HEAD
 var compose = function(para, ...fnc){
     return fnc.reduce((f)=>{return f(para)},fun[0](para))
 };
 var greet = function(name){ return 'hi: ' + name;}
 var exclaim = function(statement) { return statement.toUpperCase() + '!';}
+=======
+var compose = function() {
+};
+>>>>>>> 632900277eef9939715ba7b58d49cca1b3253a86
 
 var pipe = function() {
 };
