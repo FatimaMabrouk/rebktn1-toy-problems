@@ -8,4 +8,18 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function (str) {
+    var c = 0; 
+    for (var i = 0; i < str.length; i++){
+        if (str[i] = "(" ) {
+            c++
+        }
+        if (str[i] = ")") {
+            c--
+        }
+    }
+    if (c === 0) {
+        return true 
+    }
+    return false 
+};
