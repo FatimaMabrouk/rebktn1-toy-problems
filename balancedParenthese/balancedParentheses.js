@@ -8,4 +8,10 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function(str) {
+  var right = 0;
+  str.replace(/[\(]/g, ()=>{right++})
+  var left = 0;
+  str.replace(/[\)]/g, ()=>{left++})
+  return right == left;
+};

@@ -39,7 +39,18 @@
  */
 
 
-var Range = function(start, end, step) {
+var Range = function(start, end = undefined, step = 1) {
+  step = Math.abs(step)
+  this.range = []
+  if(start = undefined) return null;
+  if(end = undefined) this.range.push(start);
+  else {
+    check = start > end;
+    while(check? end <= start: start <= end){
+      this.range.push(check? end: start);
+      check? end++: start++;
+    }
+  }
 };
 
 Range.prototype.size = function () {
