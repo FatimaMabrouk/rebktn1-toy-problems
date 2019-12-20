@@ -8,6 +8,10 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
+//-------------
+//---First Solution Only checks for pairs---
+//-------------
+
 var isBalanced = function(str) {
 	var regex1 = /[(]/g;
 	var regex2 = /[)]/g;
@@ -20,5 +24,26 @@ var isBalanced = function(str) {
 	} 
 }
 
+//-------------
+//---Second Solution
+//-------------
 
+var isBalanced = function(str) {
+ 
+  var grabber = [];
+  var pairs = {')':'('};
 
+  for ( var i = 0; i < string.length; i++ ) {
+    if ( ['('].indexOf(string[i] ) !== -1 ) {
+      grabber.push( string[i] );
+    } else if ( pairs[string[i]] ) {
+      if ( grabber[grabber.length - 1] === pairs[string[i]]) {
+        grabber = grabber.slice(0,grabber.length-1);
+      } else {
+        return false;
+      }
+    }
+  }
+
+return grabber.join('') === '';
+}
