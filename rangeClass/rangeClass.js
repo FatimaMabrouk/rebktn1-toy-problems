@@ -42,23 +42,28 @@
 
 
 
-var range = function(start, end, step){
+var Range = function(start, end, step) {
+  start = if (start !== undefined) {
+    return start;
+    }else {
+    return null;}
 
-	Range.call(this, start, end, step);
-	this.arr = [];
-}
+  end = if (end !== undefined) {return end;
+          }else {
+          return start;}
 
-range.prototype = Object.create(Range.prototype);
+  if (step === undefined) {
+    step = start > end ? -1 : 1;
+  }
+  this.start = start;
+  this.end = end;
+  this.step = step;
+};
 
-renge.prototype.constructor = range;
-
-range.prototype.size = function() {
-	var that = this;
-	for(var i = that.start; i <= that.end; i + that.step) {
-		that.arr.push(i);
-	}
-	return arr.length;
-}
+Range.prototype.size = function() {
+  if (this.start === this.end) return 1;
+  return Math.round( ((this.end - this.start) / this.step) + 1 );
+};
 
 range.prototype.each = function(callback) {
 
