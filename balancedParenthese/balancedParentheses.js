@@ -9,15 +9,18 @@ isBalanced("") //	true
 */
 
 var isBalanced = function(str) {
+    // Object  
     let parentheses = {
         '(': 0,
         ')': 0,
     }
-  
+    //iteration  O(n) time complexity
     for (var i in str) {
+        //if a parenthesis add the parenthesis counter.
         (str[i] === '(') ? parentheses['('] += 1 : "";
         (str[i] === ')') ? parentheses[')'] += 1 : "";
     }
+    //  (left number parentheses  =  right number parentheses)?
     return parentheses['('] === parentheses[')'];
   };
   
