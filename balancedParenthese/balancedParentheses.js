@@ -8,4 +8,16 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function(str) {
+    let parentheses = {
+        '(': 0,
+        ')': 0,
+    }
+  
+    for (var i in str) {
+        (str[i] === '(') ? parentheses['('] += 1 : "";
+        (str[i] === ')') ? parentheses[')'] += 1 : "";
+    }
+    return parentheses['('] === parentheses[')'];
+  };
+  
