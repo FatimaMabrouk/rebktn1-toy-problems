@@ -51,19 +51,19 @@ var Range = function(start, end, step) {
 };
 
 Range.prototype.size = function () {
-	let s = 0;
+	let size = 0;
 	if(!this.end){
 		return 1;
 	}else if(!this._backwards){
 		for(var i = this.start; i <= this.end ; i+=this.step) {
-			s++;
+			size++;
 	}}else{
 		for(var i = this.end; i <= this.start ; i+=this.step) {
-			s++;
+			size++;
 	}
 	
 }
-return s;
+return size;
 };
 
 Range.prototype.each = function (callback) {
