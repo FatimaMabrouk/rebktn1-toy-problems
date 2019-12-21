@@ -16,27 +16,38 @@
  *
  * Example:
  *
- * asyncMap([
- *  function(cb){
- *    setTimeout(function(){
- *      cb('one');
- *    }, 200);
- *  },
- *  function(cb){
- *    setTimeout(function(){
- *      cb('two');
- *    }, 100);
- *  }
- * ],
- *  function(results){
- *    // the results array will equal ['one','two'] even though
- *    // the second function had a shorter timeout.
- *    console.log(results); // ['one', 'two']
- * });
+ 
  *
  *
  */
 
 
-var asyncMap = function(tasks, callback) {
+
+var asyncMap = function( tasks, callback) {
+	var result = [];
+	
+	for (var i = 0; i < tasks.length; i++) {
+	    tasks[i](function(num){
+	    	result.push(num)
+            console.log(num)
+	    });
+	}
+	callback(result);
 };
+ asyncMap([
+   function(cb){
+     setTimeout(function(){
+       cb('one');
+     }, 200);
+   },
+   function(cb){
+     setTimeout(function(){
+       cb('two');
+     }, 100);
+   }
+  ],
+   function(results){
+     // the results array will equal ['one','two'] even though
+     // the second function had a shorter timeout.
+     console.log(results,'henry'); // ['one', 'two']
+  });
