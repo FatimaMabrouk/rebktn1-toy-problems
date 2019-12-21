@@ -37,6 +37,21 @@
  *
  */
 
+/**
+ * 
+ * @param {Array} tasks  array of functions that will be executed
+ * @param {Function} callback finnal call back will be executed at the end, it takes result array as a param
+ * @param {Array} result the user doesnt need to send this param, its here to collect the results from tasks
+ * @param {Function} collectResult the user doesnt need to send this param, its callback function for each task, it will push values to the result array
+ *  
+ */
 
-var asyncMap = function(tasks, callback) {
+let asyncMap = (
+                tasks, 
+                callback, 
+                result = [], 
+                collectResult = (item) => result.push(item)
+                ) => {
+    tasks.forEach(func => func(collectResult));
+    return callback(result);
 };
