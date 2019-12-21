@@ -39,4 +39,19 @@
 
 
 var asyncMap = function(tasks, callback) {
+  var arr = [];
+  var promise2;
+  var promise = new Promise((res, rej)=>{
+    tasks[0](res);
+  })
+  promise.then((value)=>{
+    arr.push(value);
+    promise2 = new Promise((res, rej)=>{
+      tasks[1](res)
+    })
+    promise2.then((val)=>{
+      arr.push(val)
+      callback(arr)
+    })
+  })
 };
