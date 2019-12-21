@@ -12,4 +12,52 @@ Examples
 ["A", "J"]                      ==>  21
 ["A", "10", "A"]                ==>  12
 ["5", "3", "7"]                 ==>  15
-["5", "4", "3", "2", "A", "K"]  ==>  25 */
+
+["5", "4", "3", "2", "A", "K"]  ==>  25 
+*/
+
+
+
+function blackJack(arr){
+	if(Array.isArray(arr)){
+    let ACounter = 0;
+    for (var i = 0; i < arr.length; i++){
+        if(arr[i]==='A'){
+        	ACounter++;
+        }
+    }    
+
+	let score = 0;
+    for (var i = 0; i < arr.length; i++) {
+    	switch(arr[i]){
+    		case '2':
+    		case '3':
+    		case '4':
+    		case '5':
+    		case '6':
+    		case '7':
+    		case '8':
+    		case '9':
+    		case '10':
+    		score += parseInt(arr[i]);
+            break;
+
+    		case 'K':
+    		case 'Q':
+    		case 'J':
+    		score += 10;
+            break;
+
+            case 'A':
+            if (ACounter >= 2 || score > 11){
+            	score += 1;
+            }else{
+            	score += 11;
+            }
+            break;
+    	}
+    }
+    return score;
+}
+return undefined;
+}
