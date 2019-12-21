@@ -23,7 +23,7 @@
 // Given numbers will be positive.
 
 function dec2FactString(nb){
-	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 	var str="";
 	var result=nb;
 	for (var j = 35; j >=0; j--) {
@@ -32,21 +32,25 @@ function dec2FactString(nb){
 			for (var i = j; i >= 0; i--) {
 				if(fac * i <= result){
 					result =result - (fac * i);
-					str=str+""+i
+					str=i+""+str
 					break;
 				}
 			}
 		}else{
-		str=str+""+"0"
+		str="0"+str
 	}
 
 	}
-	var stringresult=""
-	var array=alphabet.split('')
+	console.log(str)
+	var stringResult=""
+var zero=0;
 	for (var i = 0; i < str.length; i++) {
-		stringresult=stringresult+array[str[i]];
+		zero=parseInt(str[i])+zero
+		if(zero!==0){
+		stringResult=stringResult+alphabet[str[i]];
 	}
-	return stringresult;
+	}
+	return stringResult;
 
 }
 
