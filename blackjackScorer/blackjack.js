@@ -40,3 +40,4 @@ console.log(counter(["A", "J"]))
 console.log(counter(["A", "10", "A"]))
 console.log(counter([5, 3, "7"] ))
 console.log(counter([5,4, "3", 2, "A", "K"]))
+["5", "4", "3", "2", "A", "K"]  ==>  25 */
