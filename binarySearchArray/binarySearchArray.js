@@ -11,6 +11,7 @@
  */
 
 var binarySearch = function (array, target) {
+<<<<<<< HEAD
 	
 	if (target > array.length) {
 		return null;
@@ -18,3 +19,7 @@ var binarySearch = function (array, target) {
 			return array.indexOf(array[target - 1]);
 	}
 };
+=======
+};
+
+>>>>>>> 269a3ee75c6d59550b6ccccaefaa5cb33683dbdd

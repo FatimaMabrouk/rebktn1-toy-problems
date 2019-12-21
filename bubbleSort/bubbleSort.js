@@ -33,6 +33,7 @@
 // Feel free to add helper functions if needed.
 
 
+<<<<<<< HEAD
 
 var bubbleSort = function(array) {
 	var temp;
@@ -52,4 +53,8 @@ var bubbleSort = function(array) {
 
 			return bubbleSort(array)
 		}
+=======
+var bubbleSort = function(array) {
+  // Your code here.
+>>>>>>> 269a3ee75c6d59550b6ccccaefaa5cb33683dbdd
 };
