@@ -26,36 +26,47 @@
 
 //the last digit is always 0 and is in base 0!.
 
-function factorial(num){
-	if (num === 1){
-		return 1
-	}
-	return num * factorial (num - 1)
+function factorial(x) {
+  return (x > 1) ? x * factorial(x-1) : 1;
 }
 
 
 function dec2FactString(nb){
-
-	var acc = ''
 	var i = 1
 	var j =1
 
-
+	//find upper limit
 	while (nb/factorial(i) >= 1) {
-
-		if (nb/factorial(i) === 1){
-			return i + "!x1"
-		}
-
 		i++ 
 	}
 
-
-	while (j<=i){
-	
-		acc = acc + dec2FactString(nb - factorial(i))
-		j++
+	//initiate array
+	var acc = new Array(i)
+	for (var k = 0; k < acc.length; k++) {
+		acc[k] = 0
 	}
 
-	return acc
+	// recursively modify acc array using helper function
+	function helper(num){
+		var index = 0;
+
+		if (num === 0){
+			return null
+		}
+
+		while (num/factorial(index) >= 1) {
+			index++ 
+		}
+
+		acc[acc.length - index]++
+
+		console.log(acc[acc.length - index]++)
+
+		helper(num-factorial(index))
+
+	}
+
+	helper(nb)
+
+	return acc.join('')
 }
