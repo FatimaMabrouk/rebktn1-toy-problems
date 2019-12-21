@@ -38,5 +38,71 @@
  */
 
 
+
+
+//-----------------------\\
+//---Tasks---
+//-----------------------\\
+	
 var asyncMap = function(tasks, callback) {
+
+//---------------Variables & Helpers---------
+	var results = [];
+
+	var getter = function (task) {
+		return new Promise ( resolve => {
+
+			setTimeout ( () => {
+				cb( task() );
+			}, 0);
+
+		}
+	);
+ 	async function pop (task) {
+		var result = await function getter(task) {
+		results.push(result);
+	};
+//-------------------------------------------
+	for( var i = 0; i < tasks.length; i++ ) {
+		pop(tasks[0]);
+	}
+
+	return results;
 };
+
+	
+asyncMap([
+
+  function(cb){
+    setTimeout(function(){
+      cb('one');
+    }, 200);
+  },
+
+  function(cb){
+    setTimeout(function(){
+      cb('two');
+    }, 100);
+  }
+
+ ],
+
+
+  function(results){
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+    console.log(results); // ['one', 'two']
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
