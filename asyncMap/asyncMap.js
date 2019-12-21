@@ -1,0 +1,108 @@
+'use strict';
+
+/* Implement the function asyncMap:
+ *
+ * asyncMap has two parameters, an array of asynchronous functions (tasks) and a final-result callback.
+ * Each of the tasks receives a task-specific callback that must be invoked when the task completes.
+ * The final-result callback passed to asyncMap receives the results collected by the task-specfic callbacks.
+ *
+ * The order of these results should be the same as the order of the tasks.
+ * It is important to note that this is not the order in which the tasks return,
+ * but the order in which they are passed to asyncMap.
+ *
+ * Once all the callbacks of the tasks are returned, asyncMap should invoke the callback
+ * on the results array.
+ *
+ *
+ * Example:
+ *
+ * asyncMap([
+ *  function(cb){
+ *    setTimeout(function(){
+ *      cb('one');
+ *    }, 200);
+ *  },
+ *  function(cb){
+ *    setTimeout(function(){
+ *      cb('two');
+ *    }, 100);
+ *  }
+ * ],
+ *  function(results){
+ *    // the results array will equal ['one','two'] even though
+ *    // the second function had a shorter timeout.
+ *    console.log(results); // ['one', 'two']
+ * });
+ *
+ *
+ */
+
+
+
+
+//-----------------------\\
+//---Tasks---
+//-----------------------\\
+	
+var asyncMap = function(tasks, callback) {
+
+//---------------Variables & Helpers---------
+	var results = [];
+
+	var getter = function (task) {
+		return new Promise ( resolve => {
+
+			setTimeout ( () => {
+				cb( task() );
+			}, 0);
+
+		}
+	);
+ 	async function pop (task) {
+		var result = await function getter(task) {
+		results.push(result);
+	};
+//-------------------------------------------
+	for( var i = 0; i < tasks.length; i++ ) {
+		pop(tasks[0]);
+	}
+
+	return results;
+};
+
+	
+asyncMap([
+
+  function(cb){
+    setTimeout(function(){
+      cb('one');
+    }, 200);
+  },
+
+  function(cb){
+    setTimeout(function(){
+      cb('two');
+    }, 100);
+  }
+
+ ],
+
+
+  function(results){
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+    console.log(results); // ['one', 'two']
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
