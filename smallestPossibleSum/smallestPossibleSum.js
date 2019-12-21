@@ -30,17 +30,22 @@
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
  
  function smallesSum(array){
- 	 var arr = [];
- 	 for(var i = 0; i < array.length; i++){
- 	for (var j = 0; j < array.length; j++){
-            
- 	        if(array[i] > array[j]){
- 	        	array[i] = array[i] - array[j];
- 	        	arr.push(array[i])
- 	        }
- 	    }
+ for(var i = 0; i < array.length; i++){
+    if( array[i] > array[i + 1]){
+      array[i] = array[i] - array[i + 1]
+ 	 } 
+
+ 		}
  	
+ 	for(var j = array.length - 1; j !== 0; j--){
+ 		if(array[j] > array[j - 1]){
+ 		array[j] = array[j] - array[j - 1]
  	}
- 	return arr;
-   
+ 	}
+ 	for(var x = 0; x < array.length; x++){
+ 		if(array[x] === array[x + 1]){
+        
+ 		}
+ 	}
  }
+
