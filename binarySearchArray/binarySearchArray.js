@@ -9,6 +9,7 @@
  * var index = binarySearch([1, 2, 3, 4, 5], 8);
  * console.log(index); // null
  */
+<<<<<<< HEAD
 var bubbleSort = function(array) {
   // Your code here.
   function recurse(array) {
@@ -51,5 +52,9 @@ var binarySearch = function (array,target) {
 		}
 	}
 	return recurese(array,target)
+=======
+
+var binarySearch = function (array, target) {
+>>>>>>> f64ecb4622f846554ce5673caf1ba657dae9634b
 };
 
