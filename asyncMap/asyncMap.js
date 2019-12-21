@@ -38,5 +38,18 @@
  */
 
 
-var asyncMap = function(tasks, callback) {
+var asyncMap = function (tasks, callback) {
+    var res = [];
+
+    function innerFunction(tasks, callback) {
+        if (tasks.length === 0) {
+            callback(res);
+            return;
+        }
+        tasks[0]((val) => {
+            res.push(val)
+            innerFunction(tasks.slice(1), callback)
+        })
+    }
+    innerFunction(tasks, callback)
 };
