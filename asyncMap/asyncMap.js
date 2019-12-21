@@ -1,6 +1,6 @@
 'use strict';
 
-/* Implement the function asyncMap:
+ Implement the function asyncMap:
  *
  * asyncMap has two parameters, an array of asynchronous functions (tasks) and a final-result callback.
  * Each of the tasks receives a task-specific callback that must be invoked when the task completes.
@@ -16,27 +16,32 @@
  *
  * Example:
  *
- * asyncMap([
- *  function(cb){
- *    setTimeout(function(){
- *      cb('one');
- *    }, 200);
- *  },
- *  function(cb){
- *    setTimeout(function(){
- *      cb('two');
- *    }, 100);
- *  }
- * ],
- *  function(results){
- *    // the results array will equal ['one','two'] even though
- *    // the second function had a shorter timeout.
- *    console.log(results); // ['one', 'two']
- * });
+ asyncMap([
+  function(cb){
+    setTimeout(function(){
+      cb('one');
+    }, 200);
+  },
+  function(cb){
+    setTimeout(function(){
+      cb('two');
+    }, 100);
+  }
+ ],
+  function(results){
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+     console.log(results); // ['one', 'two']
+  });
+
  *
- *
- */
+ 
 
 
 var asyncMap = function(tasks, callback) {
+	// set new promise each time for task
+ Promise.all([...tasks]).then(resolve => {
+	// envoke the callback 
+ 	callback(resolve)
+ });
 };
