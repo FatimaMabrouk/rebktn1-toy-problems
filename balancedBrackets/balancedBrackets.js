@@ -9,4 +9,30 @@ isBalanced("(50)(") // false
 isBalanced("[{]}") // false
 */
 
-var isBalanced = function(str) {};
+function isBalanced (str) {
+  var result = []; 
+  var ending = [')',']','}'];
+  var pairs = { '(': ')',
+   '[': ']',
+    '{': '}' 
+	};
+  for (var i = 0; i < str.length; i++) {
+    var char = str[i];
+    console.log('hi')
+    if ( pairs.hasOwnProperty(char) ) {
+      result.push(pairs[char]);
+    } else if ( ending.indexOf(char) !== -1 ) {
+      if (result.pop() === char) {
+      	console.log(result);
+  // continues execution of the loop with the next iteration.
+        continue;
+      } else {
+        return false;
+      }
+    }
+  }
+  console.log(result);
+  return result.length === 0;
+};
+
+
