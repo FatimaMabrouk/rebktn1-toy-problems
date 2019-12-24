@@ -9,4 +9,27 @@ isBalanced("(50)(") // false
 isBalanced("[{]}") // false
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function(str) {
+    var brackets = [];
+    for(var i = 0; i < str.length; i++){
+        if(str[i] === '('){
+            brackets.push('(');
+        }
+        if(str[i] === '['){
+            brackets.push('[');
+        }
+        if(str[i] === '{'){
+            brackets.push('{');
+        }
+        if(str[i] === ')'){
+            if(brackets.pop() !== '(') return false; 
+        }
+        if(str[i] === ']'){
+            if(brackets.pop() !== '[') return false; 
+        }
+        if(str[i] === '}'){
+            if(brackets.pop() !== '{') return false; 
+        }
+    }
+    return !brackets.length;
+};
