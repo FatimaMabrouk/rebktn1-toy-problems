@@ -19,6 +19,11 @@
 */
 
 var rockPaperScissors = function (
+    rounds,
+    result = [],
+    rps = ['R', 'P', 'S']
 ) {
-  // TODO: your solution here
+    //I will work on it lqter
 };
+
+
