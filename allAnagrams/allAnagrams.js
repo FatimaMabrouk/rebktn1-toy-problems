@@ -12,6 +12,24 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
+var allAnagrams = function (string) {
   // Your code here.
+  let result = [];
+  let arr = string.split('');
+
+  function innerFunction(temp = [], array) {
+    if (array.length === 0) {
+      result.push(temp.join(''));
+      return;
+    }
+    for (let i = 0; i < array.length; i++) {
+      temp.push(array[i]);
+      innerFunction(temp, array.slice(1));
+      temp.pop()
+    }
+  }
+  innerFunction([], arr)
+  return result;
 };
+
+//for the complexity i'am not sure about it it's either fatorial(n) or nlog(n)
