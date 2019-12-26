@@ -17,18 +17,18 @@ var allAnagrams = function (string) {
   let result = [];
   let arr = string.split('');
 
-  function innerFunction(temp = [], array) {
+  function innerFunction(array, temp = []) {
     if (array.length === 0) {
       result.push(temp.join(''));
       return;
     }
     for (let i = 0; i < array.length; i++) {
       temp.push(array[i]);
-      innerFunction(temp, array.slice(1));
+      innerFunction(array.slice(1), temp);
       temp.pop()
     }
   }
-  innerFunction([], arr)
+  innerFunction(arr)
   return result;
 };
 
