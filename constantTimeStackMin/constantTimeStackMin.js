@@ -17,24 +17,37 @@
 /**
   * Stack Class
   */
-  var Stack = function() {
-
+class Stack {
+  constructor() {
+    this.storage = new Object;
+    this.minimum = [];
+    this.count = 0;
+  }
   // add an item to the top of the stack
-    this.push = function(value) {
-    };
+  push(value) {
+    this.count += 1;
+    this.storage[this.count] = value;
+    if (value <= this.minimum[this.minimum.length - 1] || !this.minimum[0]) this.minimum.push(value);
+  };
 
   // remove an item from the top of the stack
-    this.pop = function() {
-    };
+  pop() {
+    var popedValue = this.storage[this.count];
+    delete this.storage[this.count];
+    if (popedValue === this.minimum[this.minimum.length - 1]) this.minimum.pop()
+    this.count -= 1;
+    return popedValue
+  };
 
   // return the number of items in the stack
-    this.size = function() {
-    };
-  
-  // return the minimum value in the stack
-    this.min = function() {
-
-    };
-
+  size() {
+    return Object.keys(this.storage).length;
   };
+
+  // return the minimum value in the stack
+  min() {
+    return this.minimum[this.minimum.length - 1];
+  };
+}
+
 
