@@ -41,7 +41,7 @@ class Stack {
 
   // return the number of items in the stack
   size() {
-    return Object.keys(this.storage).length;
+    return this.count;
   };
 
   // return the minimum value in the stack
