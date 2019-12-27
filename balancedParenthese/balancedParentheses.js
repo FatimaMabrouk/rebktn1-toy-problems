@@ -18,6 +18,7 @@ var val=0
 	for (var i = 0; i < str.length; i++) {
 		if(obj[str[i]] !== undefined  ) {
          p = p + obj[str[i]]
+         if( p <0) return false
 		}
 	}
 	if(p === 0) return true

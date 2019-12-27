@@ -42,9 +42,9 @@ var asyncMap = function(tasks, callback) {
 var i=0;
 var results=[]
 var  rec=function(tasks,callback){
-     tasks[i]((result)=>{
+     tasks[0]((result)=>{
 	     	results.push(result);
-	     	if(i+1 < tasks.length)
+	     	if(tasks.length >0)
 	     		{rec(tasks.slice(1),callback)}
 	     	else{callback(results)	}
 	     		
