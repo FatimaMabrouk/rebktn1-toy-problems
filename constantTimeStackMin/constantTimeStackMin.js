@@ -48,3 +48,42 @@
 
   };
 
+
+
+    // trying another way
+    var Stack = function() {
+      this.storage = {};
+      this.start = 0;
+      this.end = 0;
+      this.minVal = null;
+    // add an item to the top of the stack
+      this.push = function(value) {
+        this.storage[this.end++] = value;
+        if(!this.minVal) this.minVal = value;
+        if(this.minVal) this.minVal = value < this.minVal ? value : this.minVal;
+      };
+  
+    // remove an item from the top of the stack
+      this.pop = function() {
+        if(this.start === this.end) return;
+        var popd = this.storage[this.start];
+        delete this.storage[this.start++];
+        if(popd === this.minVal){
+          this.minVal = Math.min(...Object.values(this.storage)); // this is not constant 
+        }
+        return popd;
+      };
+  
+    // return the number of items in the stack
+      this.size = function() {
+        return this.end - this.start;
+      };
+    
+    // return the minimum value in the stack
+      this.min = function() {
+        if(this.start === this.end) return;
+        return this.minVal;
+      };
+  
+    };
+  
