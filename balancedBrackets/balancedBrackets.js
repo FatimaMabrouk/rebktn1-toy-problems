@@ -14,7 +14,7 @@ isBalanced("[{]}") // false
 //wont work if thier is spaces between them  it is Solvable be using stack
 
 /*
-
+if ( [ { 
 */
 
 var isBalanced = str => {
