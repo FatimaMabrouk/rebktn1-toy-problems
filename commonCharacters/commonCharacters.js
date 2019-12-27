@@ -11,7 +11,20 @@
  */
 
 
+var commonCharacters = function(str1, ...rest){
+  var result = [];
+  str1.split('').forEach((char) => {
+    var check = true;
+    rest.forEach((str) => {
+      if(!str.includes(char)) check = false;
+      if(result.includes(char)) check = false;
+    });
+    if(check) result.push(char);
+  });
+  return result.join('');
+}
 
+/* old sollution
 var commonCharacters = function(string1, string2) {
   var result = [];
   for(i = 0; i < string1.length; i++){
@@ -37,3 +50,4 @@ var commonCharacters2 = function(...rest) {
   }
   return result.join('');
 }
+*/
