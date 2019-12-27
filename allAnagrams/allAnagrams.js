@@ -14,22 +14,23 @@
 
 var allAnagrams = function (string) {
   // Your code here.
-  let result = [];
+  let result = {};
   let arr = string.split('');
 
   function innerFunction(array, temp = []) {
     if (array.length === 0) {
-      result.push(temp.join(''));
+      result[temp.join('')] = temp.join('');
       return;
     }
     for (let i = 0; i < array.length; i++) {
+      console.log(array)
       temp.push(array[i]);
-      innerFunction(array.slice(1), temp);
+      innerFunction(array.slice(0, i).concat(array.slice(i + 1)), temp);
       temp.pop()
     }
   }
   innerFunction(arr)
-  return result;
+  return Object.keys(result);
 };
 
 //for the complexity i'am not sure about it it's either fatorial(n) or nlog(n)
